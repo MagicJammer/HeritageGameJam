@@ -36,5 +36,10 @@ public class PlayerControl : MonoBehaviour
             if (isGround)
                 _entity.Jump();
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _entity.HoldIngredient();
+        }
     }
 }
