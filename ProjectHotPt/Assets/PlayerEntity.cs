@@ -29,7 +29,7 @@ public class PlayerEntity : MonoBehaviour
     Ingredient _onHand;
     GameObject pickUp;
 
-    public GameObject currentWorkStation;
+    public WorkStationScript currentWorkStation;
 
     // Start is called before the first frame update
     void Awake()
@@ -105,20 +105,89 @@ public class PlayerEntity : MonoBehaviour
         }
         else
         {
-            _onHand.IsPick = false;
-            pickUp.transform.parent = null;
-            pickUp.GetComponent<Rigidbody2D>().isKinematic = false;
-            pickUp = null;
-            _onHand = null;
+            if (currentWorkStation == null)
+            {
+                _onHand.IsPick = false;
+                pickUp.transform.parent = null;
+                pickUp.GetComponent<Rigidbody2D>().isKinematic = false;
+                pickUp = null;
+                _onHand = null;
+            }
+            else
+            {
+                FillWorkStation();
+            }
         }
     }
 
-    public void EnterWorkStation ()
+    public void FillWorkStation ()
     {
-        if (_onHand != null)
+        if (!currentWorkStation.WrkS.IsLoaded)
         {
-
+            if (_onHand != null)
+            {
+                _onHand.IsPick = false;
+                currentWorkStation.WrkS.CurrentIngredient.Add(_onHand);
+                if (currentWorkStation.WrkS.CurrentIngredient.Count >= currentWorkStation.WrkS.MaximumIngredient)
+                {
+                    currentWorkStation.WrkS.IsLoaded = true;
+                }
+                Destroy(pickUp);
+                _onHand = null;
+            }
         }
+        else
+        {
+            Debug.Log("Station is Full");
+        }
+    }
+
+    public void ActivateWorkStation()
+    {
+        if (currentWorkStation != null && _onHand == null)
+        {
+            if (currentWorkStation.WrkS.IsLoaded)
+            {
+                bool correctIgr = IngredientCheck(currentWorkStation.WrkS.CurrentIngredient, currentWorkStation.CurrentCookingRecipe);
+                if (correctIgr)
+                {
+                    Debug.Log("proceed to cooking");
+                    switch (currentWorkStation.WrkS.Type)
+                    {
+                        case WorkStationType.SoupBoiler:
+                            currentWorkStation.gameObject.GetComponent<BoilerScript>().toBoil = true;
+                            break;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Wrong Ingredient");
+                }
+
+            }
+        }
+    }
+
+    public bool IngredientCheck (List<Ingredient> igrCurrent, CookingRecipe recipeCurrent)
+    {
+        foreach(Ingredient r in recipeCurrent.IngredientLists)
+        {
+            if (!ContainsIngredient(igrCurrent, r))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool ContainsIngredient (List<Ingredient> list, Ingredient igr)
+    {
+        foreach (Ingredient i in list)
+        {
+            if (i.Type == igr.Type)
+                return true;
+        }
+        return false;
     }
 
 }

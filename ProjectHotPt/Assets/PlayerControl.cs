@@ -40,6 +40,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             _entity.HoldIngredient();
+            _entity.ActivateWorkStation();
         }
     }
 }
