@@ -16,20 +16,10 @@ public class PlayerEntity : MonoBehaviour
 
     [HideInInspector]
     public SpriteRenderer _SP;
-
-    [HideInInspector]
-    public BoxCollider2D col;
+    BoxCollider2D col;
 
     [HideInInspector]
     public float facing = 1;
-
-    [HideInInspector]
-    public PlayerState State;
-
-    Ingredient _onHand;
-    GameObject pickUp;
-
-    public GameObject currentWorkStation;
 
     // Start is called before the first frame update
     void Awake()
@@ -63,7 +53,6 @@ public class PlayerEntity : MonoBehaviour
 
     public void Move(float hPress)
     {
-
         Vector2 currentPos = transform.position;
         currentPos.x += hPress * MoveSpeed * Time.deltaTime;
         transform.position = currentPos;
@@ -81,46 +70,4 @@ public class PlayerEntity : MonoBehaviour
         facing *= -1;
         transform.localScale = temp;
     }
-
-    public void HoldIngredient ()
-    {
-
-        if (_onHand == null)
-        {
-            RaycastHit2D[] hits = new RaycastHit2D[1];
-            ContactFilter2D filter = new ContactFilter2D();
-            filter.SetLayerMask(LayerMask.GetMask("Interactable"));
-            if (Physics2D.BoxCast(transform.position, col.size, 0, Vector2.up, filter, hits, 0.1f) > 0)
-            {
-                pickUp = hits[0].collider.gameObject;
-                if (!pickUp.GetComponent<IngredientScript>().Igr.IsPick)
-                {
-                    _onHand = pickUp.GetComponent<IngredientScript>().Igr;
-                    _onHand.IsPick = true;
-                    pickUp.transform.parent = transform;
-                    pickUp.transform.position = transform.position + transform.up + transform.right * facing/2;
-                    pickUp.GetComponent<Rigidbody2D>().isKinematic = true;
-                }
-            }
-        }
-        else
-        {
-            _onHand.IsPick = false;
-            pickUp.transform.parent = null;
-            pickUp.GetComponent<Rigidbody2D>().isKinematic = false;
-            pickUp = null;
-            _onHand = null;
-        }
-    }
-
-    public void EnterWorkStation ()
-    {
-        if (_onHand != null)
-        {
-
-        }
-    }
-
 }
-
-public enum PlayerState {Free, Chat, Working}
