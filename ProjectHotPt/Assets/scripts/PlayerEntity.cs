@@ -29,7 +29,7 @@ public class PlayerEntity : MonoBehaviour
     Ingredient _onHand;
     GameObject pickUp;
 
-    public WorkStationScript currentWorkStation;
+    public GameObject currentWorkStation;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,7 +50,7 @@ public class PlayerEntity : MonoBehaviour
         Vector2 footRight = footPos;
         footRight.x += footOffset;
 
-        bool grounded = (Physics2D.Raycast(footLeft, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask));
+        bool grounded = Physics2D.Raycast(footLeft, Vector2.down, GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, GroundCheckDistance, PlatformMask);
         return grounded;
     }
 
@@ -66,7 +66,7 @@ public class PlayerEntity : MonoBehaviour
 
         Vector2 currentPos = transform.position;
         currentPos.x += hPress * MoveSpeed * Time.deltaTime;
-        _RB2D.velocity = new Vector2(hPress * MoveSpeed, _RB2D.velocity.y);
+        transform.position = currentPos;
     }
 
     public void Jump()
@@ -105,91 +105,22 @@ public class PlayerEntity : MonoBehaviour
         }
         else
         {
-            if (currentWorkStation == null)
-            {
-                _onHand.IsPick = false;
-                pickUp.transform.parent = null;
-                pickUp.GetComponent<Rigidbody2D>().isKinematic = false;
-                pickUp = null;
-                _onHand = null;
-            }
-            else
-            {
-                FillWorkStation();
-            }
+            _onHand.IsPick = false;
+            pickUp.transform.parent = null;
+            pickUp.GetComponent<Rigidbody2D>().isKinematic = false;
+            pickUp = null;
+            _onHand = null;
         }
     }
 
-    public void FillWorkStation ()
+    public void EnterWorkStation ()
     {
-        if (!currentWorkStation.WrkS.IsLoaded)
+        if (_onHand != null)
         {
-            if (_onHand != null)
-            {
-                _onHand.IsPick = false;
-                currentWorkStation.WrkS.CurrentIngredient.Add(_onHand);
-                if (currentWorkStation.WrkS.CurrentIngredient.Count >= currentWorkStation.WrkS.MaximumIngredient)
-                {
-                    currentWorkStation.WrkS.IsLoaded = true;
-                }
-                Destroy(pickUp);
-                _onHand = null;
-            }
-        }
-        else
-        {
-            Debug.Log("Station is Full");
-        }
-    }
 
-    public void ActivateWorkStation()
-    {
-        if (currentWorkStation != null && _onHand == null)
-        {
-            if (currentWorkStation.WrkS.IsLoaded)
-            {
-                bool correctIgr = IngredientCheck(currentWorkStation.WrkS.CurrentIngredient, currentWorkStation.CurrentCookingRecipe);
-                if (correctIgr)
-                {
-                    Debug.Log("proceed to cooking");
-                    switch (currentWorkStation.WrkS.Type)
-                    {
-                        case WorkStationType.SoupBoiler:
-                            currentWorkStation.gameObject.GetComponent<BoilerScript>().toBoil = true;
-                            break;
-                    }
-                }
-                else
-                {
-                    Debug.Log("Wrong Ingredient");
-                }
-
-            }
         }
-    }
-
-    public bool IngredientCheck (List<Ingredient> igrCurrent, CookingRecipe recipeCurrent)
-    {
-        foreach(Ingredient r in recipeCurrent.IngredientLists)
-        {
-            if (!ContainsIngredient(igrCurrent, r))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public bool ContainsIngredient (List<Ingredient> list, Ingredient igr)
-    {
-        foreach (Ingredient i in list)
-        {
-            if (i.Type == igr.Type)
-                return true;
-        }
-        return false;
     }
 
 }
 
-public enum PlayerState {Idle, Walking, OnAir}
+public enum PlayerState {Free, Chat, Working}
