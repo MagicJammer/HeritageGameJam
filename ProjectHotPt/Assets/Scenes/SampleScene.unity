@@ -253,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57ec7705b854184188abda46e480b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 400
-  MoveSpeed: 10
+  JumpForce: 450
+  MoveSpeed: 5
   GroundCheckDistance: 0.1
   PlatformMask:
     serializedVersion: 2
@@ -289,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8725758, y: 2.6684046}
+  m_Size: {x: 0.76, y: 2.6684046}
   m_EdgeRadius: 0
 --- !u!50 &124790735
 Rigidbody2D:

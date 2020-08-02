@@ -57,7 +57,7 @@ public class PlayerEntity : MonoBehaviour
     public bool WallCheck()
     {
         float offset = col.size.x / 2; ;
-        bool facingWall = Physics2D.Raycast(transform.position, Vector2.right * facing, offset, PlatformMask);
+        bool facingWall = Physics2D.Raycast(transform.position, Vector2.right * facing, offset+0.1f, PlatformMask);
         return facingWall;
     }
 
@@ -67,6 +67,7 @@ public class PlayerEntity : MonoBehaviour
         Vector2 currentPos = transform.position;
         currentPos.x += hPress * MoveSpeed * Time.deltaTime;
         transform.position = currentPos;
+        //_RB2D.MovePosition(currentPos);
     }
 
     public void Jump()
