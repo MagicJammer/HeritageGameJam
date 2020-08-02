@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\IngredientScript.cs" />
+    <Compile Include="Assets\scripts\OtherClasses.cs" />
     <Compile Include="Assets\scripts\PlayerControl.cs" />
     <Compile Include="Assets\scripts\PlayerEntity.cs" />
     <Compile Include="Assets\scripts\pocCustomerDialogueRating.cs" />
