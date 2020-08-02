@@ -50,7 +50,7 @@ public class PlayerEntity : MonoBehaviour
         Vector2 footRight = footPos;
         footRight.x += footOffset;
 
-        bool grounded = Physics2D.Raycast(footLeft, Vector2.down, GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, GroundCheckDistance, PlatformMask);
+        bool grounded = Physics2D.Raycast(footLeft, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask);
         return grounded;
     }
 
