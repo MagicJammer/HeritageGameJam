@@ -30,14 +30,14 @@ public class PlayerEntity : MonoBehaviour
     GameObject pickUp;
 
     public GameObject currentWorkStation;
-
+    PlayerAudio a;
     // Start is called before the first frame update
     void Awake()
     {
         _RB2D = GetComponent<Rigidbody2D>();
         _SP = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
-
+        a = GetComponent<PlayerAudio>();
     }
 
     public bool GroundCheck()
@@ -72,8 +72,13 @@ public class PlayerEntity : MonoBehaviour
     public void Jump()
     {
         _RB2D.AddForce(Vector2.up * JumpForce);
+        a.Jump();
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.layer == PlatformMask)
+            a.Landing();
+    }
     public void Flip()
     {
         Vector3 temp = transform.localScale;
