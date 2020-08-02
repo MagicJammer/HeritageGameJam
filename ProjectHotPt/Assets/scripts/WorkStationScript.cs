@@ -21,7 +21,7 @@ public class WorkStationScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player = collision.gameObject;
-            player.GetComponent<PlayerEntity>().currentWorkStation = this;
+            player.GetComponent<PlayerEntity>().currentWorkStation = this.gameObject;
         }
     }
 
