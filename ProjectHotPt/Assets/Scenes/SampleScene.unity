@@ -134,8 +134,10 @@ GameObject:
   - component: {fileID: 124790729}
   - component: {fileID: 124790732}
   - component: {fileID: 124790733}
+  - component: {fileID: 124790736}
   - component: {fileID: 124790734}
   - component: {fileID: 124790735}
+  - component: {fileID: 124790737}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -236,11 +238,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 124790728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503deeb0d3cacc649be148e43277fa97, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc0ca4ccff0770418be3a1de1ed1303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 300
-  MoveSpeed: 10
+--- !u!114 &124790733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124790728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57ec7705b854184188abda46e480b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpForce: 450
+  MoveSpeed: 5
   GroundCheckDistance: 0.1
   PlatformMask:
     serializedVersion: 2
@@ -251,18 +265,6 @@ MonoBehaviour:
   facing: 1
   State: 0
   currentWorkStation: {fileID: 0}
---- !u!114 &124790733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124790728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea4399a414e62647b4364df5cfa9bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &124790734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -276,7 +278,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16579771}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -287,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8725758, y: 2.6684046}
+  m_Size: {x: 0.76, y: 2.6684046}
   m_EdgeRadius: 0
 --- !u!50 &124790735
 Rigidbody2D:
@@ -310,6 +312,119 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &124790736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124790728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e433a0b896ee75848b0533f25cdf29f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpSound: {fileID: 8300000, guid: 2463d6d0eb3b1524f85e542676b96d40, type: 3}
+  LandingSound: {fileID: 8300000, guid: dabe3b678b9fc9d49a9d9e982e62b9e0, type: 3}
+  FootstepRight: {fileID: 8300000, guid: c9d4be34cc0e83b4f8a4894f5f02c860, type: 3}
+  FootstepLeft: {fileID: 8300000, guid: bdf26a09e4548a1439ac23a663959573, type: 3}
+--- !u!82 &124790737
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124790728}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3017305486812429922, guid: 7404e4c02ba257b4ebb14571b4e32702,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.24
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &361002430
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,8 +975,6 @@ GameObject:
   - component: {fileID: 2010935562}
   - component: {fileID: 2010935561}
   - component: {fileID: 2010935560}
-  - component: {fileID: 2010935563}
-  - component: {fileID: 2010935564}
   m_Layer: 0
   m_Name: Boiler
   m_TagString: Untagged
@@ -959,56 +1072,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2010935563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010935559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1143cedae76ee9f4eb019fa7a7a45bec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WrkS:
-    WName: 
-    Type: 2
-    IsAutomated: 0
-    IsOccupied: 0
-    IsLoaded: 0
-    MaximumIngredient: 1
-    CurrentIngredient: []
-  CurrentCookingRecipe:
-    RName: BeefStew
-    IngredientLists:
-    - IName: Beef
-      Type: 0
-      IsPick: 0
-      CanChop: 0
-      CanCook: 0
-      IsChopped: 0
-    IsFinal: 1
-    CookingTime: 5
-    Action: 1
-    CompleteDish: 2
-    CompleteIngredient:
-      IName: 
-      Type: 0
-      IsPick: 0
-      CanChop: 0
-      CanCook: 0
-      IsChopped: 0
---- !u!114 &2010935564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010935559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fcd75d46cf0dc4b8e139feb8604af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toBoil: 0

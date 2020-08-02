@@ -30,14 +30,14 @@ public class PlayerEntity : MonoBehaviour
     GameObject pickUp;
 
     public GameObject currentWorkStation;
-
+    PlayerAudio a;
     // Start is called before the first frame update
     void Awake()
     {
         _RB2D = GetComponent<Rigidbody2D>();
         _SP = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
-
+        a = GetComponent<PlayerAudio>();
     }
 
     public bool GroundCheck()
@@ -50,14 +50,14 @@ public class PlayerEntity : MonoBehaviour
         Vector2 footRight = footPos;
         footRight.x += footOffset;
 
-        bool grounded = Physics2D.Raycast(footLeft, Vector2.down, GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, GroundCheckDistance, PlatformMask);
+        bool grounded = Physics2D.Raycast(footLeft, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footRight, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask) || Physics2D.Raycast(footPos, Vector2.down, heightOffset + GroundCheckDistance, PlatformMask);
         return grounded;
     }
 
     public bool WallCheck()
     {
         float offset = col.size.x / 2; ;
-        bool facingWall = Physics2D.Raycast(transform.position, Vector2.right * facing, offset, PlatformMask);
+        bool facingWall = Physics2D.Raycast(transform.position, Vector2.right * facing, offset+0.1f, PlatformMask);
         return facingWall;
     }
 
@@ -67,13 +67,19 @@ public class PlayerEntity : MonoBehaviour
         Vector2 currentPos = transform.position;
         currentPos.x += hPress * MoveSpeed * Time.deltaTime;
         transform.position = currentPos;
+        //_RB2D.MovePosition(currentPos);
     }
 
     public void Jump()
     {
         _RB2D.AddForce(Vector2.up * JumpForce);
+        a.Jump();
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.layer == PlatformMask)
+            a.Landing();
+    }
     public void Flip()
     {
         Vector3 temp = transform.localScale;
