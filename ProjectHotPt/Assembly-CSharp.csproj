@@ -71,6 +71,7 @@
     <Compile Include="Assets\scripts\PlayerEntity.cs" />
     <Compile Include="Assets\scripts\PlayerEntity2.cs" />
     <Compile Include="Assets\scripts\WorkStationScript.cs" />
+    <Compile Include="Assets\scripts\pocCustomerDialogueRating.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Install Files/Production/UnityEditors/2019.4.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
