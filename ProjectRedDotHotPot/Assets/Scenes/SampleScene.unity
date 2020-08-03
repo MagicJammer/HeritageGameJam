@@ -366,6 +366,8 @@ MonoBehaviour:
   PlatformMask:
     serializedVersion: 2
     m_Bits: 256
+  JumpSound: {fileID: 8300000, guid: 03efc16df251bce4fa6381a19aee0342, type: 3}
+  Volume: 0.448
   facing: 1
   _RB2D: {fileID: 0}
   col: {fileID: 0}

@@ -17,6 +17,9 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public float JumpForce = 450;
     public float GroundCheckDistance = 0.1f;
     public LayerMask PlatformMask = 1 << 8;
+    public AudioClip JumpSound;
+    [Range(0,1)]
+    public float Volume = 1;
     //[HideInInspector]
     public float facing = 1;
     [HideInInspector]
@@ -62,8 +65,11 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 r.velocity = new Vector2(moveX * user.MoveSpeed, r.velocity.y);
                 break;
             case PlayerCommand.Jump:
-                if(GroundCheck())
+                if (GroundCheck())
+                {
                 user._RB2D.AddForce(Vector2.up * user.JumpForce);
+                    AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
+                }
                 break;
             case PlayerCommand.Interact:
                 break;
