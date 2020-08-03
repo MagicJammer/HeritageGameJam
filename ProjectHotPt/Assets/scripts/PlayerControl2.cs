@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerControl2 : MonoBehaviour
 {
-    PlayerEntity _entity;
+    PlayerEntity2 _entity;
     Animator _anim;
 
     public void Start()
     {
-        _entity = GetComponent<PlayerEntity>();
+        _entity = GetComponent<PlayerEntity2>();
         _anim = GetComponent<Animator>();
     }
 
