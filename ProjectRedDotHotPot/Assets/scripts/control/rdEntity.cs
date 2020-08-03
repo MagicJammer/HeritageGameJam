@@ -17,12 +17,12 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public float JumpForce = 450;
     public float GroundCheckDistance = 0.1f;
     public LayerMask PlatformMask = 1 << 8;
+    //[HideInInspector]
+    public float facing = 1;
     [HideInInspector]
     public Rigidbody2D _RB2D;
     [HideInInspector]
     public BoxCollider2D col;
-    [HideInInspector]
-    public float facing = 1;
     void Start()
     {
         _RB2D = GetComponent<Rigidbody2D>();
@@ -72,7 +72,7 @@ public class MoveState : rdEntity.SI_State<rdEntity>
     public bool WallCheck()
     {
         float offset = user.col.size.x / 2; ;
-        bool facingWall = Physics2D.Raycast(user.transform.position, Vector2.right * user.facing, offset + 0.1f, user.PlatformMask);
+        bool facingWall = Physics2D.Raycast(user.transform.position, Vector2.right * user.facing, offset, user.PlatformMask);
         return facingWall;
     }
     public bool GroundCheck()

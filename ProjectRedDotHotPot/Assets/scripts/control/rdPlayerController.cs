@@ -12,7 +12,7 @@ public class rdPlayerController : MonoBehaviour
     void Update()
     {
         float hPress = Input.GetAxis("Horizontal");
-        if (hPress != 0)
+        //if (hPress != 0)
                 _entity.SendMessageToBrain((int)PlayerCommand.Walk,hPress);
         if (Input.GetButtonDown("Jump"))
             _entity.SendMessageToBrain((int)PlayerCommand.Jump);
