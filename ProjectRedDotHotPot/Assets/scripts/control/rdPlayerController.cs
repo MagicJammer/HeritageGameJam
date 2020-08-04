@@ -25,4 +25,5 @@ public enum PlayerCommand
     Walk,
     Jump,
     Interact,
+    WorkDone,
 }

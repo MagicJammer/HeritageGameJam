@@ -66,6 +66,10 @@
     <Compile Include="Assets\scripts\control\rdEntity.cs" />
     <Compile Include="Assets\scripts\control\rdPlayerController.cs" />
     <Compile Include="Assets\scripts\core\Deus_FSM.cs" />
+    <Compile Include="Assets\scripts\rdCollectStation.cs" />
+    <Compile Include="Assets\scripts\rdDeusExMachina.cs" />
+    <Compile Include="Assets\scripts\rdRecipeManager.cs" />
+    <Compile Include="Assets\scripts\rdWorkstation.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/Install Files/Production/UnityEditors/2019.4.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

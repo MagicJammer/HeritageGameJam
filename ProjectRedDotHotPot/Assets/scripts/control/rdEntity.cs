@@ -13,6 +13,7 @@ public enum PlayerState
 public class rdEntity : FiniteStateMachine<PlayerState>
 {
     public override PlayerState UnassignedType => PlayerState.Unassigned;
+    public FoodItemTag ItemOnHand;
     public float MoveSpeed = 10;
     public float JumpForce = 450;
     public float GroundCheckDistance = 0.1f;
@@ -39,6 +40,20 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     void Update()
     {
         UpdateMachine();
+    }
+    public void DropOffItem()
+    {
+        ItemOnHand = FoodItemTag.None;
+    }
+    public bool CollectItem(FoodItemTag item)
+    {
+        if (ItemOnHand == FoodItemTag.None)
+        {
+            ItemOnHand = item;
+            return true;
+        }
+        else
+            return false;
     }
 }
 public class MoveState : rdEntity.SI_State<rdEntity>
