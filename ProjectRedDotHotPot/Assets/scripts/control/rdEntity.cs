@@ -14,6 +14,7 @@ public class rdEntity : FiniteStateMachine<PlayerState>
 {
     public override PlayerState UnassignedType => PlayerState.Unassigned;
     public FoodItemTag ItemOnHand;
+    public rdStation SelectedStation;
     public float MoveSpeed = 10;
     public float JumpForce = 450;
     public float GroundCheckDistance = 0.1f;
@@ -87,6 +88,8 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 }
                 break;
             case PlayerCommand.Interact:
+                if (user.SelectedStation.Interact(user.ItemOnHand,user))
+                    user.ChangeState(PlayerState.Work);
                 break;
         }
     }
@@ -129,6 +132,9 @@ public class WorkState : rdEntity.SI_State<rdEntity>
     public WorkState(rdEntity brain) : base(brain) { }
     public override void OnReceiveMessage(int msgtype, object[] args)
     {
+        PlayerCommand c = (PlayerCommand)msgtype;
+        if (c == PlayerCommand.WorkDone)
+            user.ChangeState(PlayerState.Move);
     }
 
     public override void OnStateEnter(PlayerState prevStateType, object[] args)
