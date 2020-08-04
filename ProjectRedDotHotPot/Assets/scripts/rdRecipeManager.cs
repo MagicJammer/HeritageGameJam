@@ -9,7 +9,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
     public string RecipeFolder = "recipe_bags";
     public int CurrentOrder = 0;
     CustomerRecipe[] CustomerOrders;
-    //List<CustomerRecipe> CustomerOrders = new List<CustomerRecipe>();
+    public int DialogueIdx;
+    public string[] DialogueLines;
     public Dictionary<FoodItemTag, WorkstationTag> RemainingIngredients = new Dictionary<FoodItemTag, WorkstationTag>();
     protected override void Awake()
     {
@@ -54,11 +55,6 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
         rdWorkstation station = KitchenStations[w];
         station.Status = StationStatus.Ready;
     }
-    //public void OnWorkDone()
-    //{
-    //    foreach (rdWorkstation station in KitchenStations.Values)
-    //        station.Status = WorkstationStatus.Ready;
-    //}
     public void OrderServed()
     {
         CurrentOrder++;
@@ -67,8 +63,17 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
             foreach (rdWorkstation s in KitchenStations.Values)
                 s.ResetRecipe();
             NextRecipe();
+            DialogueLines = CustomerOrders[CurrentOrder].Story;
         }
         else
             Debug.Log("Rating");
+    }
+    public void Chat()
+    {
+        if(DialogueIdx<DialogueLines.Length)
+        {
+            Debug.Log(DialogueIdx);
+            DialogueIdx++;
+        }
     }
 }

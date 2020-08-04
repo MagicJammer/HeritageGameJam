@@ -12,7 +12,7 @@ public class rdCustomerCounter : rdWorkstation
             Debug.Log(item + "served");
         }
         else
-            Debug.Log("chat");
+            rdRecipeManager.Seele.Chat();
             return false;
     }
 }
