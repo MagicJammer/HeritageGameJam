@@ -22,6 +22,7 @@ public class rdCollectStation : rdStation
     {
         IngredientsInUse.Add(ingredient);
         Status = StationStatus.Ready;
+        rdUIManager.UpdateStationPopups(this.gameObject, IngredientsInUse);
     }
     public override void ResetRecipe()
     {
@@ -36,6 +37,10 @@ public class rdCollectStation : rdStation
         IngredientsInUse.RemoveAt(0);
         if(IngredientsInUse.Count<=0)
             Status = StationStatus.Inactive;
+
+        rdUIManager.UpdateStationPopups(gameObject, IngredientsInUse);
+        rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+
         return false;
     }
 }

@@ -6,5 +6,6 @@ using UnityEngine;
 public class rdUIFoodBags : ScriptableObject
 {
     public FoodItemTag FoodType;
+    public Sprite Sprite;
     public GameObject Prefab;
 }

@@ -10,8 +10,12 @@ public class rdCustomerCounter : rdWorkstation
         {
             rdRecipeManager.Seele.OrderServed();
             Debug.Log(item + "served");
-        }
-        else
+
+            //test only
+            user.ItemOnHand = FoodItemTag.None;
+            rdUIManager.UpdateStationPopups(gameObject);
+            rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+        } else
             rdRecipeManager.Seele.Chat();
             return false;
     }

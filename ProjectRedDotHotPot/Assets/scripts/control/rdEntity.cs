@@ -28,6 +28,8 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public Rigidbody2D _RB2D;
     [HideInInspector]
     public BoxCollider2D col;
+    public SpriteRenderer ItemOnHandSprite;
+    
     void Start()
     {
         _RB2D = GetComponent<Rigidbody2D>();
@@ -52,9 +54,10 @@ public class rdEntity : FiniteStateMachine<PlayerState>
         {
             ItemOnHand = item;
             return true;
-        }
-        else
+        } else {
             return false;
+        }
+
     }
 }
 public class MoveState : rdEntity.SI_State<rdEntity>

@@ -23,13 +23,20 @@ public class rdUIManager : Singleton<rdUIManager>
         }
     }
 
+    public static void UpdateStationPopups(GameObject station, FoodItemTag req) {
+        FoodItemTag[] reqToArray = new FoodItemTag[] { req};
+        UpdateStationPopups(station, reqToArray);
+    }
+
     public static void UpdateStationPopups(GameObject station, List<FoodItemTag> requirements) {
         FoodItemTag[] reqArray = requirements.ToArray();
         UpdateStationPopups(station, reqArray);
     }
 
-    public static void UpdateStationPopups(GameObject station, FoodItemTag[] requirements) {
+    public static void UpdateStationPopups(GameObject station, FoodItemTag[] requirements = null) {
         Seele.DestroyPopup(station.name);
+        if (requirements == null)
+            return;
         GameObject popupGO = Instantiate(Seele.PopupPrefab);
         popupGO.transform.SetParent(station.transform);
         rdUIWorldSpaceCanvas popupCanvas = popupGO.GetComponent<rdUIWorldSpaceCanvas>();
@@ -48,5 +55,12 @@ public class rdUIManager : Singleton<rdUIManager>
 
     public void DestroyPopup(string id) {
         OnDestroyPopup?.Invoke(id);
+    }
+
+    public static void UpdateOnHandItem(FoodItemTag type, rdEntity entity) {
+        if (Seele._foodBags.TryGetValue(type, out rdUIFoodBags fdbag)) {
+            entity.ItemOnHandSprite.sprite = fdbag.Sprite;
+        } else
+            entity.ItemOnHandSprite.sprite = null;
     }
 }

@@ -30,6 +30,8 @@ public class rdWorkstation : rdStation
     {
         Instructions.Add(instruction);
         Status = StationStatus.Ready;
+
+        rdUIManager.UpdateStationPopups(gameObject, instruction.Result);
     }
     public override bool Interact(FoodItemTag item, rdEntity user)
     {
@@ -43,6 +45,9 @@ public class rdWorkstation : rdStation
                 {
                     user.DropOffItem();
                     StartTask(user);
+
+                    rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+
                     return CurrentInstruction.Type == TaskType.Active;// if true player goes into work mode, might need an enum for process type
                 }
                 else
@@ -50,6 +55,9 @@ public class rdWorkstation : rdStation
             case StationStatus.Collect:
                 if (user.CollectItem(CurrentInstruction.Result))
                     Status = StationStatus.Ready;
+
+                rdUIManager.UpdateStationPopups(gameObject);
+                rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
                 return false;
         }
         return false;
@@ -65,9 +73,11 @@ public class rdWorkstation : rdStation
                     CurrentInstruction = instruction;
                 else return false;
         ItemsOnHold.Add(item);
-        foreach(FoodItemTag i in CurrentInstruction.Ingredients)
-            if(!ItemsOnHold.Contains(i))
-              return false;
+        foreach (FoodItemTag i in CurrentInstruction.Ingredients)
+            if (!ItemsOnHold.Contains(i)) {
+
+                return false;
+            }
         return true;
     }
     void StartTask(rdEntity user)
