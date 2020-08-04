@@ -24,8 +24,8 @@ public class rdUIManager : Singleton<rdUIManager>
     }
 
     public static void UpdateStationPopups(GameObject station, List<FoodItemTag> requirements) {
-        requirements.ToArray();
-        UpdateStationPopups(station, requirements);
+        FoodItemTag[] reqArray = requirements.ToArray();
+        UpdateStationPopups(station, reqArray);
     }
 
     public static void UpdateStationPopups(GameObject station, FoodItemTag[] requirements) {
