@@ -63,10 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\CustomerRecipe.cs" />
     <Compile Include="Assets\scripts\control\rdEntity.cs" />
     <Compile Include="Assets\scripts\control\rdPlayerController.cs" />
+    <Compile Include="Assets\scripts\core\DeusEx_OrderCor.cs" />
     <Compile Include="Assets\scripts\core\Deus_FSM.cs" />
+    <Compile Include="Assets\scripts\core\Deus_Seele.cs" />
     <Compile Include="Assets\scripts\rdCollectStation.cs" />
+    <Compile Include="Assets\scripts\rdCustomerCounter.cs" />
     <Compile Include="Assets\scripts\rdDeusExMachina.cs" />
     <Compile Include="Assets\scripts\rdRecipeManager.cs" />
     <Compile Include="Assets\scripts\rdWorkstation.cs" />

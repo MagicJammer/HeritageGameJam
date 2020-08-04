@@ -2,12 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "CustomerRecipe", menuName = "MagicJammer/CustomerRecipe", order = 1)]
-public class CustomerRecipe : ScriptableObject
-{
-    public int OrderNumber;
-    public Recipe DishRecipe;
-}
+
 //[CreateAssetMenu(fileName = "IngredientBag", menuName = "MAGES/CustomerRecipe", order = 2)]
 //public class FoodItemBag : ScriptableObject
 //{
@@ -19,7 +14,7 @@ public class CustomerRecipe : ScriptableObject
 [Serializable]
 public struct Recipe
 {
-    public string DishName;
+    public FoodItemTag DishName;
     public RecipeInstruction[] Instructions;
 }
 [Serializable]
@@ -54,13 +49,13 @@ public enum FoodItemTag
     Prawns,
     Fishcakes,
 
-
+    CookedPrawns,
 }
 public enum WorkstationTag
 {
     Counter, Bowl, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker,
 }
-public enum WorkstationStatus
+public enum StationStatus
 {
     Inactive,//not used by recipe
     Ready,//used by recipe

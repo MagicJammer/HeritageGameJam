@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class rdRecipeManager : MonoBehaviour
+public class rdRecipeManager : Singleton<rdRecipeManager>
 {
-    public Recipe CurrentRecipe;
+    public Recipe CurrentRecipe=> CustomerOrders[CurrentOrder].DishRecipe;
     public Dictionary<FoodItemTag, rdCollectStation> IngredientStations = new Dictionary<FoodItemTag, rdCollectStation>();
     public Dictionary<WorkstationTag, rdWorkstation> KitchenStations = new Dictionary<WorkstationTag, rdWorkstation>();
     public string RecipeFolder = "recipe_bags";
@@ -11,10 +11,10 @@ public class rdRecipeManager : MonoBehaviour
     CustomerRecipe[] CustomerOrders;
     //List<CustomerRecipe> CustomerOrders = new List<CustomerRecipe>();
     public Dictionary<FoodItemTag, WorkstationTag> RemainingIngredients = new Dictionary<FoodItemTag, WorkstationTag>();
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         CustomerRecipe[] cr = Resources.LoadAll<CustomerRecipe>(RecipeFolder);
-        //CustomerOrders.AddRange(cr);
         int rcount = cr.Length;
         CustomerRecipe[] arr = new CustomerRecipe[rcount];
         foreach(CustomerRecipe o in cr)
@@ -24,10 +24,13 @@ public class rdRecipeManager : MonoBehaviour
         }
         CustomerOrders = arr;
     }
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
     void Start()
     {
-        CurrentOrder++;
-        if (CurrentOrder <= CustomerOrders.Length)
+        OrderCor.FirstOrder(this);
             NextRecipe();
     }
     public void NextRecipe()
@@ -37,7 +40,8 @@ public class rdRecipeManager : MonoBehaviour
             WorkstationTag w = instruction.Workstation;
             foreach (FoodItemTag tag in instruction.Ingredients)
             {
-                RemainingIngredients.Add(tag,w);
+                //RemainingIngredients.Add(tag,w);
+                RemainingIngredients[tag] = w;
             }
             KitchenStations[w].SetRecipe(instruction);
         }
@@ -48,7 +52,7 @@ public class rdRecipeManager : MonoBehaviour
     {
         WorkstationTag w = RemainingIngredients[tag];
         rdWorkstation station = KitchenStations[w];
-        station.Status = WorkstationStatus.Ready;
+        station.Status = StationStatus.Ready;
     }
     //public void OnWorkDone()
     //{
@@ -58,7 +62,7 @@ public class rdRecipeManager : MonoBehaviour
     public void OrderServed()
     {
         CurrentOrder++;
-        if (CurrentOrder <= CustomerOrders.Length)
+        if (CurrentOrder < CustomerOrders.Length)
         {
             foreach (rdWorkstation s in KitchenStations.Values)
                 s.ResetRecipe();
