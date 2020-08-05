@@ -20,6 +20,8 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public AudioOneShotData JumpSound;
     public AudioOneShotData StepSound;
     //[HideInInspector]
+    public Animator Anim;
+    //[HideInInspector]
     public float facing = 1;
     [HideInInspector]
     public Rigidbody2D _RB2D;
@@ -29,6 +31,7 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     {
         _RB2D = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
+        Anim = GetComponent<Animator>();
         RegisterState(new MoveState(this));
         RegisterState(new WorkState(this));
         ChangeState(PlayerState.Move);
@@ -70,6 +73,7 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 {
                 user._RB2D.AddForce(Vector2.up * user.JumpForce);
                     user.JumpSound.PlayAtPoint(user.transform.position);
+                    user.Anim.SetTrigger("JumpButton");
                     //AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
                 }
                 break;
@@ -107,7 +111,12 @@ public class MoveState : rdEntity.SI_State<rdEntity>
     }
 
     public override void OnStateUpdate()
-    { 
+    {
+        Vector2 r = user._RB2D.velocity;
+        user.Anim.SetBool("IsWalking", r.x != 0);
+        user.Anim.SetBool("IsMidAir", r.y < -0.1f||r.y>0.1f);
+        if(r!=Vector2.zero)
+        Debug.Log(r);
     }
 }
 public class WorkState : rdEntity.SI_State<rdEntity>
