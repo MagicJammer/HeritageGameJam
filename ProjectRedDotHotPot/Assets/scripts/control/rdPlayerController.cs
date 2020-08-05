@@ -13,6 +13,15 @@ public class rdPlayerController : MonoBehaviour
         float hPress = Input.GetAxis("Horizontal");
         //if (hPress != 0)
                 _entity.SendMessageToBrain((int)PlayerCommand.Walk,hPress);
+
+        //Toan's code start
+        if (hPress * transform.localScale.x >  0)
+        {
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+        }
+        //Toan's code end
         if (Input.GetButtonDown("Jump"))
             _entity.SendMessageToBrain((int)PlayerCommand.Jump);
         if (Input.GetButtonDown("Fire1"))

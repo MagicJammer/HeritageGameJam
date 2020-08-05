@@ -57,8 +57,10 @@ public class MoveState : rdEntity.SI_State<rdEntity>
             case PlayerCommand.Walk:
                 float moveX = (float)args[0];
                 if (moveX > 0)
+                {
                     user.facing = 1;
-                else if(moveX<0)
+                }
+                else if (moveX < 0)
                     user.facing = -1;
                 if (WallCheck())
                     return;
