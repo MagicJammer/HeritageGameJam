@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ArtAssets\BoilerScript.cs" />
     <Compile Include="Assets\scripts\control\rdEntity.cs" />
     <Compile Include="Assets\scripts\control\rdPlayerController.cs" />
     <Compile Include="Assets\scripts\core\Deus_FSM.cs" />
