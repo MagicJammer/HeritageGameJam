@@ -17,9 +17,8 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public float JumpForce = 450;
     public float GroundCheckDistance = 0.1f;
     public LayerMask PlatformMask = 1 << 8;
-    public AudioClip JumpSound;
-    [Range(0,1)]
-    public float Volume = 1;
+    public AudioOneShotData JumpSound;
+    public AudioOneShotData StepSound;
     //[HideInInspector]
     public float facing = 1;
     [HideInInspector]
@@ -34,8 +33,10 @@ public class rdEntity : FiniteStateMachine<PlayerState>
         RegisterState(new WorkState(this));
         ChangeState(PlayerState.Move);
     }
-
-    // Update is called once per frame
+    public void FootstepSound()
+    {
+        StepSound.PlayAtPoint(transform.position);
+    }
     void Update()
     {
         UpdateMachine();
@@ -68,7 +69,8 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 if (GroundCheck())
                 {
                 user._RB2D.AddForce(Vector2.up * user.JumpForce);
-                    AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
+                    user.JumpSound.PlayAtPoint(user.transform.position);
+                    //AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
                 }
                 break;
             case PlayerCommand.Interact:

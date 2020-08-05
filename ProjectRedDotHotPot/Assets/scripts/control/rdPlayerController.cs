@@ -1,7 +1,6 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class rdPlayerController : MonoBehaviour
 {
     rdEntity _entity;
@@ -26,3 +25,21 @@ public enum PlayerCommand
     Jump,
     Interact,
 }
+[Serializable]
+public struct AudioOneShotData
+{
+    public AudioClip[] Clips;
+    [Range(0, 1)]
+    public float Volume;
+    int _CurrentClip;
+    public void PlayAtPoint(Vector3 position)
+    {
+        if (Clips[_CurrentClip] != null)
+        {
+        AudioSource.PlayClipAtPoint(Clips[_CurrentClip], position, Volume);
+        _CurrentClip++;
+        if (_CurrentClip >= Clips.Length)
+            _CurrentClip = 0;
+        }
+    }
+} 
