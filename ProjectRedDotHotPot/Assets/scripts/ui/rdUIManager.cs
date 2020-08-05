@@ -45,8 +45,10 @@ public class rdUIManager : Singleton<rdUIManager>
 
     public static void UpdateStationPopups(GameObject station, FoodItemTag[] requirements = null) {
         Seele.DestroyPopup(station.name);
-        if (requirements == null)
+        if (requirements == null) {
+
             return;
+        }
         GameObject popupGO = Instantiate(Seele.PopupPrefab);
         popupGO.transform.SetParent(station.transform);
         rdUIWorldSpaceCanvas popupCanvas = popupGO.GetComponent<rdUIWorldSpaceCanvas>();
@@ -57,6 +59,8 @@ public class rdUIManager : Singleton<rdUIManager>
         foreach (FoodItemTag item in requirements) {
             if (Seele._foodBags.TryGetValue(item, out rdUIFoodBags foodbag)) {
                 GameObject fdGO = Instantiate(foodbag.Prefab);
+                Image im = fdGO.GetComponent<Image>();
+                im.sprite = foodbag.Sprite;
                 fdGO.transform.SetParent(parent);
                 fdGO.transform.localScale = Vector3.one;
             }
@@ -85,7 +89,6 @@ public class rdUIManager : Singleton<rdUIManager>
 
         Seele._currentIdx = 0;
         Seele._stories = stories;
-
         Seele._currentChatGO = Instantiate(Seele.ChatPrefab);
         Seele._currentText = Seele._currentChatGO.GetComponentInChildren<Text>();
         Seele._currentText.text = "";

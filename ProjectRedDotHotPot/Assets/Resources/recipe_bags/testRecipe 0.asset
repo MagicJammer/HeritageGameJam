@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7958f28d47b0e942866b84a75116347, type: 3}
+  m_Name: testRecipe 0
+  m_EditorClassIdentifier: 
+  OrderNumber: 0
+  DishRecipe:
+    DishName: 902
+    Instructions:
+    - Ingredients: 84030000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 901
+    - Ingredients: 85030000
+      Workstation: 3
+      ProcessTime: 2
+      Type: 1
+      Result: 902
+    RequiredProcessedResults: 86030000
+  StoryData:
+  - StoryLine: once upon a time
+    TextDelay: 1
+  ChatData: []

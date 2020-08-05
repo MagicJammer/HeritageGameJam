@@ -7,5 +7,6 @@ public class rdUIFoodBags : ScriptableObject
 {
     public FoodItemTag FoodType;
     public Sprite Sprite;
+    [Header("ui_foodbag gameobject")]
     public GameObject Prefab;
 }

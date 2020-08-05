@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7958f28d47b0e942866b84a75116347, type: 3}
+  m_Name: testRecipe 1 (real one)
+  m_EditorClassIdentifier: 
+  OrderNumber: 1
+  DishRecipe:
+    DishName: 201
+    Instructions:
+    - Ingredients: 03000000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 101
+    - Ingredients: 0d000000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 102
+    - Ingredients: 0c000000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 103
+    - Ingredients: 0e000000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 104
+    - Ingredients: 22000000
+      Workstation: 7
+      ProcessTime: 1
+      Type: 1
+      Result: 0
+    - Ingredients: 2200000065000000660000006800000067000000
+      Workstation: 3
+      ProcessTime: 3
+      Type: 1
+      Result: 201
+    RequiredProcessedResults: c9000000
+  StoryData:
+  - StoryLine: yeeeeeeeeeey wooooooo yaaaaaa
+    TextDelay: 1
+  ChatData: []
