@@ -50,6 +50,8 @@ public enum FoodItemTag
     Fishcakes,
 
     CookedPrawns,
+    BeefFillet,
+
 }
 public enum WorkstationTag
 {

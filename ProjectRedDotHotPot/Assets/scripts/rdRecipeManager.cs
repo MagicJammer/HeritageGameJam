@@ -12,6 +12,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
     public int DialogueIdx;
     public string[] DialogueLines;
     public Dictionary<FoodItemTag, WorkstationTag> RemainingIngredients = new Dictionary<FoodItemTag, WorkstationTag>();
+    public ChatData[] _currentChatdatas => CustomerOrders[CurrentOrder].ChatData;
     protected override void Awake()
     {
         base.Awake();
@@ -24,10 +25,16 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
             arr[i] = o;
         }
         CustomerOrders = arr;
+
+        rdUIManager.Seele.OnStoryTellingDone += OnStoryTellingDone;
     }
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
+
+        if(rdUIManager.Seele != null)
+        rdUIManager.Seele.OnStoryTellingDone -= OnStoryTellingDone;
     }
     void Start()
     {
@@ -44,7 +51,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
                 //RemainingIngredients.Add(tag,w);
                 RemainingIngredients[tag] = w;
             }
-            KitchenStations[w].SetRecipe(instruction);
+            KitchenStations[w].SetRecipe(instruction);            
         }
         foreach (FoodItemTag t in RemainingIngredients.Keys)
             IngredientStations[t].SetRecipe(t);
@@ -62,8 +69,12 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
         {
             foreach (rdWorkstation s in KitchenStations.Values)
                 s.ResetRecipe();
-            NextRecipe();
-            DialogueLines = CustomerOrders[CurrentOrder].Story;
+
+            //DialogueLines = CustomerOrders[CurrentOrder - 1].StoryLines;
+            //call the event on the uimanager to play
+            StoryData[] currentStories = CustomerOrders[CurrentOrder - 1].StoryData;
+            rdUIManager.ShowStoryText(currentStories);
+
         }
         else
             Debug.Log("Rating");
@@ -75,5 +86,10 @@ public class rdRecipeManager : Singleton<rdRecipeManager>
             Debug.Log(DialogueIdx);
             DialogueIdx++;
         }
+    }
+
+    void OnStoryTellingDone() 
+    {
+        NextRecipe();
     }
 }

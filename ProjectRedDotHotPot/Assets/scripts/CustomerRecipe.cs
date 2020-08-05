@@ -6,5 +6,20 @@ public class CustomerRecipe : ScriptableObject
     public int OrderNumber;
     public Recipe DishRecipe;
     //public Image Picture;
-    public string[] Story;
+    public StoryData[] StoryData;
+    public ChatData[] ChatData;
+}
+
+[System.Serializable]
+public struct StoryData 
+{
+    [TextArea(3, 5)]
+    public string StoryLine;
+    public float TextDelay;
+}
+
+[System.Serializable]
+public struct ChatData {
+    public string ChatLine;
+    public float TextDelay;
 }

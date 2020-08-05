@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7958f28d47b0e942866b84a75116347, type: 3}
-  m_Name: TestPrawn
+  m_Name: TestPrawn2
   m_EditorClassIdentifier: Assembly-CSharp::CustomerRecipe
-  OrderNumber: 0
+  OrderNumber: 1
   DishRecipe:
     DishName: 8
     Instructions:
@@ -22,16 +22,10 @@ MonoBehaviour:
       Type: 1
       Result: 8
   StoryData:
-  - StoryLine: story of my life
-    TextDelay: 2
-  - StoryLine: your name is .....
+  - StoryLine: story lineeeeee
     TextDelay: 2
   ChatData:
-  - ChatLine: hey lets chat
-    TextDelay: 3
-  - ChatLine: wheres my foooood
+  - ChatLine: what is the name of this country again
     TextDelay: 2
-  - ChatLine: uhm what am i doing idk hahah
-    TextDelay: 2
-  - ChatLine: im a customeeer hehehe
+  - ChatLine: uhmmmmm
     TextDelay: 2

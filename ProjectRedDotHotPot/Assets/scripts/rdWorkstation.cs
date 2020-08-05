@@ -32,6 +32,7 @@ public class rdWorkstation : rdStation
         Status = StationStatus.Ready;
 
         rdUIManager.UpdateStationPopups(gameObject, instruction.Result);
+
     }
     public override bool Interact(FoodItemTag item, rdEntity user)
     {
