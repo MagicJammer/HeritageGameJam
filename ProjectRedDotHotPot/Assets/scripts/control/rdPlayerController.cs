@@ -15,12 +15,12 @@ public class rdPlayerController : MonoBehaviour
                 _entity.SendMessageToBrain((int)PlayerCommand.Walk,hPress);
 
         //Toan's code start
-        if (hPress * transform.localScale.x >  0)
-        {
-            Vector3 temp = transform.localScale;
-            temp.x *= -1;
-            transform.localScale = temp;
-        }
+        //if (hPress * transform.localScale.x >  0)
+        //{
+        //    Vector3 temp = transform.localScale;
+        //    temp.x *= -1;
+        //    transform.localScale = temp;
+        //}
         //Toan's code end
         if (Input.GetButtonDown("Jump"))
             _entity.SendMessageToBrain((int)PlayerCommand.Jump);

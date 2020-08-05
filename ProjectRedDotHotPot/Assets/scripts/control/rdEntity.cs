@@ -19,8 +19,10 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public LayerMask PlatformMask = 1 << 8;
     public AudioOneShotData JumpSound;
     public AudioOneShotData StepSound;
-    //[HideInInspector]
-    public Animator Anim;
+    [HideInInspector]
+    public Animator _Anim;
+    [HideInInspector]
+    public SpriteRenderer _SP;
     //[HideInInspector]
     public float facing = 1;
     [HideInInspector]
@@ -31,7 +33,8 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     {
         _RB2D = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
-        Anim = GetComponent<Animator>();
+        _Anim = GetComponent<Animator>();
+        _SP = GetComponent<SpriteRenderer>();
         RegisterState(new MoveState(this));
         RegisterState(new WorkState(this));
         ChangeState(PlayerState.Move);
@@ -59,9 +62,13 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 if (moveX > 0)
                 {
                     user.facing = 1;
+                    user._SP.flipX = true;
                 }
                 else if (moveX < 0)
+                {
                     user.facing = -1;
+                    user._SP.flipX = false;
+                }
                 if (WallCheck())
                     return;
                 //Vector2 currentPos = user.transform.position;
@@ -75,7 +82,7 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 {
                 user._RB2D.AddForce(Vector2.up * user.JumpForce);
                     user.JumpSound.PlayAtPoint(user.transform.position);
-                    user.Anim.SetTrigger("JumpButton");
+                    user._Anim.SetTrigger("JumpButton");
                     //AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
                 }
                 break;
@@ -115,8 +122,8 @@ public class MoveState : rdEntity.SI_State<rdEntity>
     public override void OnStateUpdate()
     {
         Vector2 r = user._RB2D.velocity;
-        user.Anim.SetBool("IsWalking", r.x != 0);
-        user.Anim.SetBool("IsMidAir", r.y < -0.1f||r.y>0.1f);
+        user._Anim.SetBool("IsWalking", r.x != 0);
+        user._Anim.SetBool("IsMidAir", r.y < -0.1f||r.y>0.1f);
         if(r!=Vector2.zero)
         Debug.Log(r);
     }
