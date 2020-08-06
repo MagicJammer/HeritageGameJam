@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
   m_Name: naan bread
   m_EditorClassIdentifier: 
-  FoodType: 35
-  Sprite: {fileID: 21300000, guid: 6493f6fc3b9a458469fb53f37f75bf32, type: 3}
+  FoodType: 19
+  Sprite: {fileID: 21300000, guid: 830b5faf5dc24c64eb5261e616f88d5c, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}

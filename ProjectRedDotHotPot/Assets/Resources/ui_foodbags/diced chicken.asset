@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: diced chicken
   m_EditorClassIdentifier: 
   FoodType: 5
-  Sprite: {fileID: 21300000, guid: 8fb491aa387895d40ba18d2857b7a8e0, type: 3}
+  Sprite: {fileID: 21300000, guid: 71e0b765f933b3c4c99b76b44af09ae8, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}

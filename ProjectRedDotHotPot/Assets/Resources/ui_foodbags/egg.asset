@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
-  m_Name: ingredientbeef
+  m_Name: egg
   m_EditorClassIdentifier: 
-  FoodType: 1
-  Sprite: {fileID: 21300000, guid: 1efc8271311f780418bdd2f3b6014105, type: 3}
-  Prefab: {fileID: 1066671835574952497, guid: 8b2eca1a931985b4f9486247ad5be3f2, type: 3}
+  FoodType: 10
+  Sprite: {fileID: 21300000, guid: bc7d297f7c4f4f443aeb9fdea5aca403, type: 3}
+  Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}

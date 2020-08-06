@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
   m_Name: prawn
   m_EditorClassIdentifier: 
-  FoodType: 900
-  Sprite: {fileID: 21300000, guid: ef3360cbeb6bf744da55ac2f2a68e638, type: 3}
+  FoodType: 24
+  Sprite: {fileID: 21300000, guid: 6504e198df128314d81b710253c78c03, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}
