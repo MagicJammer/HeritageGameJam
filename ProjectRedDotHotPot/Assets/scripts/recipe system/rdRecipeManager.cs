@@ -66,9 +66,11 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
         Seele.OnHoldInstructionUpdate?.Invoke(foodInstruction);
     }
 }
+[Serializable]
 public struct AudioAmbienceDynamic
 {
     public AudioClip Clip;
+    [Range(0,1)]
     public float[] FaderMarks;
     public float GetVolume(int key)
     {
