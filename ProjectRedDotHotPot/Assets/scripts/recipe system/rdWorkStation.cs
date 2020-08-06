@@ -12,7 +12,8 @@ public class rdWorkStation : rdStation {
     public List<FoodItemTag> CurrentHoldItems = new List<FoodItemTag>();
     public float Timer;
     //public bool Done;
-
+    AudioSource LoopSound;
+    public AudioOneShotData StartSound;
     //interact only true if the player is need to be working
     public override bool Interact(FoodItemTag item, rdEntity user) {
         switch (Status) {
@@ -69,6 +70,7 @@ public class rdWorkStation : rdStation {
         rdRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
         rdRecipeManager.Seele.OnHoldInstructionUpdate += OnHoldInstructionUpdate;
         OnNewRecipe();
+        LoopSound = GetComponent<AudioSource>();
     }
 
     public void OnNewRecipe() {
@@ -103,6 +105,9 @@ public class rdWorkStation : rdStation {
         Timer += CurrentInstruction.ProcessTime;
         Status = StationStatus.Cooking;
         User = user;
+        LoopSound.Play();
+        StartSound.PlayAtPoint(transform.position);
+        //play start sound and loop sound
     }
 
     void TaskDone() {
