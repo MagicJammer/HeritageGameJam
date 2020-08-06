@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 613}
+  m_MinSize: {x: 875, y: 763}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 920, y: 563}
-  m_MaxSize: {x: 16005, y: 12063}
+  m_MinSize: {x: 921, y: 563}
+  m_MaxSize: {x: 16006, y: 12063}
   vertical: 0
-  controlID: 1672
+  controlID: 148
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 645, y: 563}
   m_MaxSize: {x: 12005, y: 12063}
   vertical: 1
-  controlID: 1593
+  controlID: 125
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 645, y: 442}
   m_MaxSize: {x: 12005, y: 8042}
   vertical: 0
-  controlID: 1594
+  controlID: 126
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_MinSize: {x: 444, y: 442}
   m_MaxSize: {x: 8004, y: 8042}
   vertical: 1
-  controlID: 1595
+  controlID: 127
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_MinSize: {x: 444, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 1618
+  controlID: 95
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -368,8 +368,8 @@ MonoBehaviour:
     y: 0
     width: 390
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
@@ -496,9 +496,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8f1ffff
-      m_LastClickedID: -3672
-      m_ExpandedIDs: f6f2ffff
+      m_SelectedIDs: 4af9ffff
+      m_LastClickedID: -1718
+      m_ExpandedIDs: 60fbffff18390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -744,9 +744,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 32}
-    m_SelectedIDs: c8430000
-    m_LastClickedID: 17352
-    m_ExpandedIDs: 000000003e42000040420000424200004442000046420000484200004a4200004c4200007c42000000ca9a3b
+    m_SelectedIDs: 10420000
+    m_LastClickedID: 16912
+    m_ExpandedIDs: 00000000963d0000983d00009a3d00009c3d00009e3d0000a03d0000a23d0000a43d00000642000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -774,7 +774,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e42000040420000424200004442000046420000484200004a4200004c42000000ca9a3b
+    m_ExpandedIDs: 00000000963d0000983d00009a3d00009c3d00009e3d0000a03d0000a23d0000a43d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -799,8 +799,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a8f1ffff
-    m_LastClickedInstanceID: -3672
+    m_SelectedInstanceIDs: 4af9ffff
+    m_LastClickedInstanceID: -1718
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000c03c0000
     m_RenameOverlay:
@@ -884,8 +884,8 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7e420000
-    m_LastClickedID: 17022
+    m_SelectedIDs: a63d0000
+    m_LastClickedID: 15782
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 14}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -956,7 +956,7 @@ MonoBehaviour:
       splitSize: 6
       xOffset: 0
     m_HorizontalSplitter:
-      ID: 1866
+      ID: 871
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes: cb0100002e040000
@@ -1011,4 +1011,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 58
+  m_LastVerticalScrollValue: 0
