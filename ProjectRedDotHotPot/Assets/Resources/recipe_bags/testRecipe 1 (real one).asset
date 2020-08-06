@@ -50,4 +50,10 @@ MonoBehaviour:
   StoryData:
   - StoryLine: beef kway teow is a beef with bla bla bla
     TextDelay: 1
-  ChatData: []
+  ChatData:
+  - ChatLine: beeeeef
+    TextDelay: 3
+  - ChatLine: uhm yea yea
+    TextDelay: 4
+  - ChatLine: test chaating oopsss
+    TextDelay: 2

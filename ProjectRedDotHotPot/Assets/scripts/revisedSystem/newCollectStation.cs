@@ -45,12 +45,13 @@ public class newCollectStation : rdStation {
     }
 
     public void OnNewRecipe() {
-        //subtract the last item
         //TODO variety of food distribution
-
-
         foreach (var item in newRecipeManager.Seele._currentRecipe.IngredientsToPickup) {
-            IngredientsToPickedUp.Add(item);
+            foreach (var ing in RestrictIngredients) {
+                if (ing == item) {
+                    IngredientsToPickedUp.Add(ing);
+                }
+            }
         }
 
         Status = StationStatus.Ready;

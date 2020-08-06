@@ -35,4 +35,10 @@ MonoBehaviour:
   StoryData:
   - StoryLine: butter chicken naan is made of butter, chicken, and naan hehez
     TextDelay: 1
-  ChatData: []
+  ChatData:
+  - ChatLine: butter is cow
+    TextDelay: 2
+  - ChatLine: 'chicken dinner '
+    TextDelay: 3
+  - ChatLine: naan
+    TextDelay: 4
