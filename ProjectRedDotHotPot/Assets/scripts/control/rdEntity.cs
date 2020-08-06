@@ -13,8 +13,8 @@ public enum PlayerState
 public class rdEntity : FiniteStateMachine<PlayerState>
 {
     public override PlayerState UnassignedType => PlayerState.Unassigned;
-    public float MoveSpeed = 10;
-    public float JumpForce = 450;
+    public float MoveSpeed = 7;
+    public float JumpForce = 600;
     public float GroundCheckDistance = 0.1f;
     public LayerMask PlatformMask = 1 << 8;
     public AudioOneShotData JumpSound;
