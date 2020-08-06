@@ -31,6 +31,10 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public Rigidbody2D _RB2D;
     [HideInInspector]
     public BoxCollider2D col;
+    [Header("added")]
+    public SpriteRenderer ItemOnHandSprite;
+    public FoodItemTag ItemOnHand;
+    public rdStation SelectedStation;
     void Start()
     {
         _RB2D = GetComponent<Rigidbody2D>();
@@ -52,6 +56,19 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     void Update()
     {
         UpdateMachine();
+    }
+    public void DropOffItem() {
+        ItemOnHand = FoodItemTag.None;
+    }
+
+    public bool CollectItem(FoodItemTag item) {
+        if (ItemOnHand == FoodItemTag.None) {
+            ItemOnHand = item;
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
 public class MoveState : rdEntity.SI_State<rdEntity>

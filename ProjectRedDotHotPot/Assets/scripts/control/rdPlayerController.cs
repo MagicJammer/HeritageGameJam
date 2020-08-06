@@ -33,6 +33,7 @@ public enum PlayerCommand
     Walk,
     Jump,
     Interact,
+    WorkDone,
 }
 [Serializable]
 public struct AudioOneShotData
