@@ -51,4 +51,12 @@ public struct AudioOneShotData
             _CurrentClip = 0;
         }
     }
+    public AudioClip GetSequenceClip()
+    {
+        AudioClip c = Clips[_CurrentClip];
+        _CurrentClip++;
+        if (_CurrentClip >= Clips.Length)
+            _CurrentClip = 0;
+        return c;
+    }
 } 

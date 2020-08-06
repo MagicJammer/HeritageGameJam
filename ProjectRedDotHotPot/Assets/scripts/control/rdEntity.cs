@@ -20,6 +20,8 @@ public class rdEntity : FiniteStateMachine<PlayerState>
     public AudioOneShotData JumpSound;
     public AudioOneShotData StepSound;
     [HideInInspector]
+    public AudioSource _Audio;
+    [HideInInspector]
     public Animator _Anim;
     [HideInInspector]
     public SpriteRenderer _SP;
@@ -38,10 +40,14 @@ public class rdEntity : FiniteStateMachine<PlayerState>
         RegisterState(new MoveState(this));
         RegisterState(new WorkState(this));
         ChangeState(PlayerState.Move);
+        _Audio = GetComponent<AudioSource>();
     }
     public void FootstepSound()
     {
-        StepSound.PlayAtPoint(transform.position);
+        //StepSound.PlayAtPoint(transform.position);
+        _Audio.clip = StepSound.GetSequenceClip();
+        _Audio.volume = StepSound.Volume;
+        _Audio.Play();
     }
     void Update()
     {
@@ -70,18 +76,25 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                     user._SP.flipX = false;
                 }
                 if (WallCheck())
+                {
+                    user._Anim.SetBool("IsWalking", false);
                     return;
+                }
                 //Vector2 currentPos = user.transform.position;
                 //currentPos.x += moveX * user.MoveSpeed * Time.deltaTime;
                 //user.transform.position = currentPos;
                 Rigidbody2D r = user._RB2D;
                 r.velocity = new Vector2(moveX * user.MoveSpeed, r.velocity.y);
+                    user._Anim.SetBool("IsWalking", moveX != 0);
                 break;
             case PlayerCommand.Jump:
                 if (GroundCheck())
                 {
                 user._RB2D.AddForce(Vector2.up * user.JumpForce);
                     user.JumpSound.PlayAtPoint(user.transform.position);
+                    //user._Audio.clip = user.JumpSound.GetSequenceClip();
+                    //user._Audio.volume = user.JumpSound.Volume;
+                    //user._Audio.Play();
                     user._Anim.SetTrigger("JumpButton");
                     //AudioSource.PlayClipAtPoint(user.JumpSound, user.transform.position, user.Volume);
                 }
@@ -122,7 +135,7 @@ public class MoveState : rdEntity.SI_State<rdEntity>
     public override void OnStateUpdate()
     {
         Vector2 r = user._RB2D.velocity;
-        user._Anim.SetBool("IsWalking", r.x != 0);
+        //user._Anim.SetBool("IsWalking", r.x != 0);
         user._Anim.SetBool("IsMidAir", r.y < -0.1f||r.y>0.1f);
         if(r!=Vector2.zero)
         Debug.Log(r);
