@@ -55,6 +55,7 @@ public enum FoodItemTag
     PalmSugar,
     Pandanleaves,
     //SEAFOOD,
+    Pork,
     Prawns,
     RedBean,
     Rice,
@@ -79,6 +80,10 @@ public enum FoodItemTag
     CutOnions,
     FriedNaanBread,
     ButterChicken,
+    CookedPrawn,
+    DicedYam,
+    CrushedPandanLeaves,
+    SlicedGreenOnions,
     
 
     //201-299 final menu

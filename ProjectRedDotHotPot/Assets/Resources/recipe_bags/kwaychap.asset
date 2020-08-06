@@ -16,8 +16,28 @@ MonoBehaviour:
   CustomerSprite: {fileID: 21300000, guid: fe9277b7910e4cd42a347d3022bc3fd9, type: 3}
   DishRecipe:
     DishName: 203
-    Instructions: []
-    IngredientsToPickup: 000000000000000000000000000000000000000000000000
+    Instructions:
+    - Ingredients: 0a000000
+      Workstation: 3
+      ProcessTime: 0
+      Type: 1
+      Result: 0
+    - Ingredients: 
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 0
+    - Ingredients: 
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 0
+    - Ingredients: 
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 0
+    IngredientsToPickup: 0a000000180000001f00000021000000140000001d000000
   StoryData:
   - StoryLine: 'My grandpa used to have a pig farm. '
     TextDelay: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
   m_Name: cooked_prawns
   m_EditorClassIdentifier: 
-  FoodType: 902
-  Sprite: {fileID: 21300000, guid: 000110258d623c541beb0ffa4d65b551, type: 3}
+  FoodType: 108
+  Sprite: {fileID: 21300000, guid: 306ff30a6d51e0e45b1d5da64966528f, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}
