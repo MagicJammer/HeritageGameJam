@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7958f28d47b0e942866b84a75116347, type: 3}
   m_Name: testRecipe 1 (real one)
   m_EditorClassIdentifier: 
-  OrderNumber: 1
+  OrderNumber: 0
   DishRecipe:
     DishName: 201
     Instructions:
@@ -36,18 +36,18 @@ MonoBehaviour:
       ProcessTime: 1
       Type: 0
       Result: 104
-    - Ingredients: 22000000
-      Workstation: 7
-      ProcessTime: 1
-      Type: 1
-      Result: 0
     - Ingredients: 2200000065000000660000006800000067000000
       Workstation: 3
       ProcessTime: 3
       Type: 1
       Result: 201
-    RequiredProcessedResults: c9000000
+    - Ingredients: c9000000
+      Workstation: 1
+      ProcessTime: 0
+      Type: 1
+      Result: 201
+    IngredientsToPickup: 0c000000030000000e0000000d00000022000000
   StoryData:
-  - StoryLine: yeeeeeeeeeey wooooooo yaaaaaa
+  - StoryLine: beef kway teow is a beef with bla bla bla
     TextDelay: 1
   ChatData: []

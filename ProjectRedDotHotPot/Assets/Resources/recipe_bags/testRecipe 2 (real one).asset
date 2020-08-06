@@ -10,24 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7958f28d47b0e942866b84a75116347, type: 3}
-  m_Name: testRecipe 0
+  m_Name: testRecipe 2 (real one)
   m_EditorClassIdentifier: 
-  OrderNumber: 2
+  OrderNumber: 1
   DishRecipe:
-    DishName: 902
+    DishName: 202
     Instructions:
-    - Ingredients: 84030000
-      Workstation: 2
+    - Ingredients: 23000000
+      Workstation: 4
       ProcessTime: 1
-      Type: 0
-      Result: 901
-    - Ingredients: 85030000
-      Workstation: 3
-      ProcessTime: 2
       Type: 1
-      Result: 902
-    RequiredProcessedResults: 86030000
+      Result: 105
+    - Ingredients: 050000001a0000001d000000
+      Workstation: 3
+      ProcessTime: 1
+      Type: 1
+      Result: 106
+    - Ingredients: 690000006a000000
+      Workstation: 1
+      ProcessTime: 1
+      Type: 1
+      Result: 202
+    IngredientsToPickup: 23000000050000001a0000001d000000
   StoryData:
-  - StoryLine: once upon a time
+  - StoryLine: butter chicken naan is made of butter, chicken, and naan hehez
     TextDelay: 1
   ChatData: []

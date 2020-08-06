@@ -11,7 +11,7 @@ public class newWorkStation : rdStation {
     public List<RecipeInstruction> RecipeMenu = new List<RecipeInstruction>();
     public List<FoodItemTag> CurrentHoldItems = new List<FoodItemTag>();
     public float Timer;
-    public bool Done;
+    //public bool Done;
 
     //interact only true if the player is need to be working
     public override bool Interact(FoodItemTag item, rdEntity user) {
@@ -23,6 +23,7 @@ public class newWorkStation : rdStation {
                             user.DropOffItem();
                             CurrentInstruction = rm;
                             rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+                            rdUIManager.UpdateStationPopups(this.gameObject);
                             //TODO multiple cooks
                             CurrentHoldItems.Add(igts);
                             FoodItemTag[] reqs = CurrentInstruction.Ingredients;
@@ -32,6 +33,7 @@ public class newWorkStation : rdStation {
                             }
                             return CurrentInstruction.Type == TaskType.Active;
                         }
+
                     }
                 }
                 break;
@@ -41,8 +43,10 @@ public class newWorkStation : rdStation {
 
                 RecipeMenu.Remove(CurrentInstruction);
                 CurrentHoldItems.Clear();
-                UpdatePopups();
+                //OnHoldInstructionUpdate();
                 rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+                rdUIManager.UpdateStationPopups(this.gameObject);
+                newRecipeManager.UpdateInstruction(user.ItemOnHand);
                 break;
             default:
                 return false;
@@ -55,12 +59,15 @@ public class newWorkStation : rdStation {
     }
 
     private void OnDestroy() {
-        if (newRecipeManager.Seele != null)
+        if (newRecipeManager.Seele != null) {
             newRecipeManager.Seele.OnNewRecipe -= OnNewRecipe;
+            newRecipeManager.Seele.OnHoldInstructionUpdate -= OnHoldInstructionUpdate;
+        }
     }
 
     private void Start() {
         newRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
+        newRecipeManager.Seele.OnHoldInstructionUpdate += OnHoldInstructionUpdate;
         OnNewRecipe();
     }
 
@@ -72,15 +79,24 @@ public class newWorkStation : rdStation {
             }
         }
         Status = StationStatus.Ready;
-        UpdatePopups();
+        //UpdatePopups();
     }
 
-    void UpdatePopups() {
+    void OnHoldInstructionUpdate(FoodItemTag food) {
         List<FoodItemTag> fds = new List<FoodItemTag>();
         foreach (RecipeInstruction item in RecipeMenu) {
             fds.Add(item.Result);
         }
-        rdUIManager.UpdateStationPopups(this.gameObject, fds);
+        
+        //to be updated later XD
+        foreach (RecipeInstruction rcp in RecipeMenu) {
+            foreach (FoodItemTag correctFood in rcp.Ingredients) {
+                if(food == correctFood) {
+                    rdUIManager.UpdateStationPopups(this.gameObject, correctFood);
+                    break;
+                }
+            }
+        }
     }
 
     void StartTask(rdEntity user) {
@@ -94,6 +110,7 @@ public class newWorkStation : rdStation {
         Debug.Log(CurrentInstruction.Result + " Done");
         User = null;
         Status = StationStatus.Collect;
+        rdUIManager.UpdateStationPopups(this.gameObject, CurrentInstruction.Result);
     }
 
     void Update() {

@@ -10,12 +10,13 @@ public class newRecipeManager : Singleton<newRecipeManager> {
     //TODO to check if recipe is already completed
     Dictionary<FoodItemTag, CustomerRecipe> _recipeReference = new Dictionary<FoodItemTag, CustomerRecipe>();
 
-
     public Recipe _currentRecipe => _customerOrders[_currentOrderIdx].DishRecipe;
     List<CustomerRecipe> _customerOrders = new List<CustomerRecipe>();
     int _currentOrderIdx = 0;
+    public ChatData[] _currentChatdatas => _customerOrders[_currentOrderIdx].ChatData;
 
     public event Action OnNewRecipe;
+    public event Action<FoodItemTag> OnHoldInstructionUpdate;
 
     protected override void Awake() {
         base.Awake();
@@ -26,7 +27,6 @@ public class newRecipeManager : Singleton<newRecipeManager> {
             _recipeReference[r.DishRecipe.DishName] = r;
             _customerOrders.Add(r);
         }
-
     }
 
     private void Start() {
@@ -37,7 +37,7 @@ public class newRecipeManager : Singleton<newRecipeManager> {
     protected override void OnDestroy() {
         base.OnDestroy();
 
-        if(rdUIManager.Seele != null)
+        if (rdUIManager.Seele != null)
             rdUIManager.Seele.OnStoryTellingDone -= OnStoryTellingDone;
     }
 
@@ -58,5 +58,9 @@ public class newRecipeManager : Singleton<newRecipeManager> {
     //event to call all to replenish/change menu
     public void NewRecipe() {
         OnNewRecipe?.Invoke();
+    }
+
+    public static void UpdateInstruction(FoodItemTag foodInstruction) {
+        Seele.OnHoldInstructionUpdate?.Invoke(foodInstruction);
     }
 }

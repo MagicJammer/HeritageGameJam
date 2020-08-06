@@ -9,7 +9,7 @@ public struct Recipe
 {
     public FoodItemTag DishName;
     public RecipeInstruction[] Instructions;
-    public FoodItemTag[] RequiredProcessedResults;
+    public FoodItemTag[] IngredientsToPickup;
 }
 [Serializable]
 public struct RecipeInstruction
@@ -93,7 +93,7 @@ public enum FoodItemTag
 }
 public enum WorkstationTag
 {
-    Counter, Plate, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None,
+    Counter, Plate, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None, Collect,
 }
 public enum StationStatus
 {

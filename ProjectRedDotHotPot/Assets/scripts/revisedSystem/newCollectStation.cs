@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class newCollectStation : rdStation {
+    public WorkstationTag Tag;
     public StationStatus Status;
     public FoodItemTag[] RestrictIngredients;
     //hide in inspector later
@@ -24,6 +25,8 @@ public class newCollectStation : rdStation {
         else
             rdUIManager.UpdateStationPopups(gameObject, IngredientsToPickedUp);
         rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
+
+        newRecipeManager.UpdateInstruction(user.ItemOnHand);
         return false;
     }
 
@@ -42,22 +45,14 @@ public class newCollectStation : rdStation {
     }
 
     public void OnNewRecipe() {
-
         //subtract the last item
         //TODO variety of food distribution
-        RecipeInstruction[] instructions = newRecipeManager.Seele._currentRecipe.Instructions;
-        for (int i = 0; i < instructions.Length - 1; i++) {
-            foreach (FoodItemTag item in instructions[i].Ingredients) {
-                FoodItemTag newIngredient = item;
-                //foreach (var xFood in RestrictIngredients) {
-                //    if (newIngredient != xFood) {
-                //        IngredientsToPickedUp.Add(newIngredient);
-                //    }
-                //}
 
-                IngredientsToPickedUp.Add(item);
-            }
+
+        foreach (var item in newRecipeManager.Seele._currentRecipe.IngredientsToPickup) {
+            IngredientsToPickedUp.Add(item);
         }
+
         Status = StationStatus.Ready;
         rdUIManager.UpdateStationPopups(this.gameObject, IngredientsToPickedUp);
     }
