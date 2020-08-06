@@ -9,7 +9,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     public string RecipePath = "recipe_bags";
     //TODO to check if recipe is already completed
     Dictionary<FoodItemTag, CustomerRecipe> _recipeReference = new Dictionary<FoodItemTag, CustomerRecipe>();
-
+    public AudioAmbienceDynamic CrowdSoundClip;
+    AudioSource _CrowdSound;
     public Recipe _currentRecipe => _customerOrders[_currentOrderIdx].DishRecipe;
     List<CustomerRecipe> _customerOrders = new List<CustomerRecipe>();
     int _currentOrderIdx = 0;
@@ -31,7 +32,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
 
     private void Start() {
         rdUIManager.Seele.OnStoryTellingDone += OnStoryTellingDone;
-
+        _CrowdSound = GetComponent<AudioSource>();
     }
 
     protected override void OnDestroy() {
@@ -52,6 +53,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
             return;
         }
         _currentOrderIdx++;
+        _CrowdSound.volume = CrowdSoundClip.GetVolume(_currentOrderIdx);
         NewRecipe();
     }
 
@@ -62,5 +64,14 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
 
     public static void UpdateInstruction(FoodItemTag foodInstruction) {
         Seele.OnHoldInstructionUpdate?.Invoke(foodInstruction);
+    }
+}
+public struct AudioAmbienceDynamic
+{
+    public AudioClip Clip;
+    public float[] FaderMarks;
+    public float GetVolume(int key)
+    {
+        return FaderMarks[key];
     }
 }
