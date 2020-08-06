@@ -117,6 +117,9 @@ public class MoveState : rdEntity.SI_State<rdEntity>
                 }
                 break;
             case PlayerCommand.Interact:
+                if (user.SelectedStation != null)
+                    if (user.SelectedStation.Interact(user.ItemOnHand, user))
+                        user.ChangeState(PlayerState.Work);
                 break;
         }
     }
