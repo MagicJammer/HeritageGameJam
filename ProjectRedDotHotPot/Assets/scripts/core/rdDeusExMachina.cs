@@ -65,7 +65,8 @@ public enum FoodItemTag
     Paranthas,
     Noodles,
     NaanBread,
-
+    Rice,
+    Yam,
     //101-199 processed menu
     PROCESSEDMENU = 100,
     MincedBeef,

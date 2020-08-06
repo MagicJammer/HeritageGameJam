@@ -105,6 +105,7 @@ public class rdWorkStation : rdStation {
         Timer += CurrentInstruction.ProcessTime;
         Status = StationStatus.Cooking;
         User = user;
+        if(LoopSound.clip!=null)
         LoopSound.Play();
         StartSound.PlayAtPoint(transform.position);
         //play start sound and loop sound
@@ -113,6 +114,7 @@ public class rdWorkStation : rdStation {
     void TaskDone() {
         User.SendMessageToBrain((int)PlayerCommand.WorkDone);
         Debug.Log(CurrentInstruction.Result + " Done");
+        LoopSound.Stop();
         User = null;
         Status = StationStatus.Collect;
         rdUIManager.UpdateStationPopups(this.gameObject, CurrentInstruction.Result);

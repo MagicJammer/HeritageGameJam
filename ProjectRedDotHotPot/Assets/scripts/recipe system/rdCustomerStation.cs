@@ -6,11 +6,12 @@ public class rdCustomerStation : rdStation
 {
     [HideInInspector]
     public SpriteRenderer CustomerSprite;
+    public AudioOneShotData BellSound;
     public override bool Interact(FoodItemTag item, rdEntity user) {
         if (item == rdRecipeManager.Seele._currentRecipe.DishName) {
             rdRecipeManager.Seele.OrderServed();
             Debug.Log(item + "served");
-
+            BellSound.PlayAtPoint(transform.position);
             user.ItemOnHand = FoodItemTag.None;
             rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
 

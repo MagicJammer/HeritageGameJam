@@ -6,7 +6,7 @@ using UnityEngine;
 public class rdPlateOrBowl : rdStation {
     public WorkstationTag Tag;
     public StationStatus Status;
-
+    public AudioOneShotData ReadySound;
     public List<FoodItemTag> CurrentlyHolding = new List<FoodItemTag>();
     public List<FoodItemTag> _requiredMenus = new List<FoodItemTag>();
     public FoodItemTag FinalPlating;
@@ -33,6 +33,7 @@ public class rdPlateOrBowl : rdStation {
             case StationStatus.Collect:
                 CurrentlyHolding.Clear();
                 user.ItemOnHand = FinalPlating;
+                ReadySound.PlayAtPoint(transform.position);
                 Status = StationStatus.Inactive;
                 rdUIManager.UpdateStationPopups(gameObject);
                 rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);

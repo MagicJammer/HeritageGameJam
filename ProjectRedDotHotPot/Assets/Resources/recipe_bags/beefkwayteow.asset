@@ -49,13 +49,17 @@ MonoBehaviour:
       Result: 201
     IngredientsToPickup: 030000000d0000000c0000000e00000022000000
   StoryData:
-  - StoryLine: "I used to live here. We grew up in a family of 4, but when my parents
-      travelled and did not return my brother took care of us. Fortunately, before
-      my parents left they had taught him how to cook their well liked Beef Kway
-      Teow to sell at the market and so we managed to live on that until he figured
-      how to cook other simpler dishes at home. He is no longer around, so thought
-      I\u2019d try my luck coming here in hopes of tasting the Beef Kway Teow once
-      more. "
+  - StoryLine: I used to live here.
+    TextDelay: 2
+  - StoryLine: We grew up in a family of 4, but when my parents travelled and did
+      not return, my brother took care of us.
+    TextDelay: 2
+  - StoryLine: Fortunately, before my parents left they had taught him how to cook
+      their well liked Beef Kway Teow to sell at the market and so we managed to
+      live on that until he figured how to cook other simpler dishes at home.
+    TextDelay: 2
+  - StoryLine: "He is no longer around, so thought I\u2019d try my luck coming here
+      in hopes of tasting the Beef Kway Teow once more. "
     TextDelay: 2
   ChatData:
   - ChatLine: Hi
