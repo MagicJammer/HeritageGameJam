@@ -70,6 +70,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
 public struct AudioAmbienceDynamic
 {
     public AudioClip Clip;
+    [Range(0,1)]
     public float[] FaderMarks;
     public float GetVolume(int key)
     {
