@@ -172,10 +172,16 @@ public class WorkState : rdEntity.SI_State<rdEntity>
     public override void OnStateEnter(PlayerState prevStateType, object[] args)
     {
         user = (rdEntity)Machine;
+        Rigidbody2D r = user._RB2D;
+        r.velocity = Vector2.zero;
+        //change the sprite renderer here
+        //user._SP = ...
     }
 
     public override void OnStateExit(PlayerState newStateType, object[] arg)
     {
+        //back to moving sprite i guess
+        //user._SP = ...
     }
 
     public override void OnStateUpdate()

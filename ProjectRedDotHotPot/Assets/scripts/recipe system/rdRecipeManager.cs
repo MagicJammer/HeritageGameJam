@@ -16,6 +16,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     int _currentOrderIdx = 0;
     public ChatData[] _currentChatdatas => _customerOrders[_currentOrderIdx].ChatData;
 
+    public CustomerRecipe _currentCustomer => _customerOrders[_currentOrderIdx];
+
     public event Action OnNewRecipe;
     public event Action<FoodItemTag> OnHoldInstructionUpdate;
 
