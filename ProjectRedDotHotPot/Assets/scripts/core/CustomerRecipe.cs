@@ -5,8 +5,9 @@ public class CustomerRecipe : ScriptableObject
 {
     public int OrderNumber;
     //public bool OrderCompleted; //other way to do this hehe
+    public Sprite CustomerSprite;
     public Recipe DishRecipe;
-    //public Image Picture;
+
     public StoryData[] StoryData;
     public ChatData[] ChatData;
 }

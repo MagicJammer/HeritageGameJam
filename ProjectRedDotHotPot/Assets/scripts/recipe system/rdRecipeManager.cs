@@ -16,6 +16,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     int _currentOrderIdx = 0;
     public ChatData[] _currentChatdatas => _customerOrders[_currentOrderIdx].ChatData;
 
+    public CustomerRecipe _currentCustomer => _customerOrders[_currentOrderIdx];
+
     public event Action OnNewRecipe;
     public event Action<FoodItemTag> OnHoldInstructionUpdate;
 
@@ -66,11 +68,9 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
         Seele.OnHoldInstructionUpdate?.Invoke(foodInstruction);
     }
 }
-[Serializable]
 public struct AudioAmbienceDynamic
 {
     public AudioClip Clip;
-    [Range(0,1)]
     public float[] FaderMarks;
     public float GetVolume(int key)
     {

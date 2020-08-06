@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class rdCustomerStation : rdStation
 {
+    [HideInInspector]
+    public SpriteRenderer CustomerSprite;
     public override bool Interact(FoodItemTag item, rdEntity user) {
         if (item == rdRecipeManager.Seele._currentRecipe.DishName) {
             rdRecipeManager.Seele.OrderServed();
@@ -25,10 +27,20 @@ public class rdCustomerStation : rdStation
         throw new System.NotImplementedException();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void OnDestroy() {
+        if (rdRecipeManager.Seele != null) {
+            rdRecipeManager.Seele.OnNewRecipe -= OnNewRecipe;          
+        }
+    }
+
+    private void Start() {
+        rdRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
+        CustomerSprite = this.GetComponent<SpriteRenderer>();
+        OnNewRecipe();
+    }
+
+    void OnNewRecipe() {
+        CustomerSprite.sprite = rdRecipeManager.Seele._currentCustomer.CustomerSprite;
     }
 
     // Update is called once per frame
