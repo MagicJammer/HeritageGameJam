@@ -16,7 +16,6 @@ public class newCustomerStation : rdStation
             //random chat thingyy
             ChatData[] chats = newRecipeManager.Seele._currentChatdatas;
             rdUIManager.ShowRandomChatText(chats);
-            //rdRecipeManager.Seele.Chat();
             return false;
         }
         return false;

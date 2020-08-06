@@ -45,7 +45,6 @@ public class newCollectStation : rdStation {
     }
 
     public void OnNewRecipe() {
-        //TODO variety of food distribution
         foreach (var item in newRecipeManager.Seele._currentRecipe.IngredientsToPickup) {
             foreach (var ing in RestrictIngredients) {
                 if (ing == item) {
@@ -53,7 +52,6 @@ public class newCollectStation : rdStation {
                 }
             }
         }
-
         Status = StationStatus.Ready;
         rdUIManager.UpdateStationPopups(this.gameObject, IngredientsToPickedUp);
     }

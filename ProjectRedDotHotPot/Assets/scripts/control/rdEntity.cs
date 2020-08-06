@@ -120,6 +120,7 @@ public class MoveState : rdEntity.SI_State<rdEntity>
     public override void OnStateEnter(PlayerState prevStateType, object[] args)
     { 
         user =(rdEntity)Machine;
+
     }
 
     public override void OnStateExit(PlayerState newStateType, object[] arg)
@@ -144,6 +145,8 @@ public class WorkState : rdEntity.SI_State<rdEntity>
     public override void OnStateEnter(PlayerState prevStateType, object[] args)
     {
         user = (rdEntity)Machine;
+        Rigidbody2D r = user._RB2D;
+        r.velocity = Vector2.zero;
     }
 
     public override void OnStateExit(PlayerState newStateType, object[] arg)

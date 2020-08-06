@@ -81,8 +81,8 @@ public enum FoodItemTag
     BeefKwayTeow = 201,
     ButterChickenNaan,
 
-    //999 plate
-    Plate = 999,
+    //999 plate or bowl
+    PlateOrBowl = 999,
 
 
     //just to test delete later
@@ -93,7 +93,7 @@ public enum FoodItemTag
 }
 public enum WorkstationTag
 {
-    Counter, Plate, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None, Collect,
+    Counter, PlateOrBowl, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None, Collect,
 }
 public enum StationStatus
 {
