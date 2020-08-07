@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 1c00000018000000
+  RestrictIngredients: 1d00000011000000120000000f000000
   IngredientsToPickedUp: 
 --- !u!1001 &154952816
 PrefabInstance:
