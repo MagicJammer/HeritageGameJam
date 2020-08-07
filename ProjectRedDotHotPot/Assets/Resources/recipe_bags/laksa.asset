@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b08f7ce2f258d44b42517e65a038a0, type: 3}
+  m_Name: laksa
+  m_EditorClassIdentifier: 
+  OrderNumber: 7
+  CustomerSprite: {fileID: 0}
+  DishRecipe:
+    DishName: 208
+    Instructions:
+    - Ingredients: 1a000000
+      Workstation: 3
+      ProcessTime: 0
+      Type: 0
+      Result: 110
+    - Ingredients: 0b000000
+      Workstation: 2
+      ProcessTime: 0
+      Type: 0
+      Result: 124
+    - Ingredients: 10000000
+      Workstation: 5
+      ProcessTime: 0
+      Type: 0
+      Result: 125
+    - Ingredients: 15000000110000006e0000007c0000007d000000
+      Workstation: 1
+      ProcessTime: 0
+      Type: 0
+      Result: 208
+    - Ingredients: d0000000
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 208
+    IngredientsToPickup: 1a0000000b000000100000001500000013000000
+  StoryData:
+  - StoryLine: 'My great grandfather used to be a fisherman here. As riverside residents,
+      my mum would often cook and I would run to the fishing boats to bring him lunch.
+      My all time favourite was the laksa, thus my cravings for it every time I come
+      by here. It brings back many memories. '
+    TextDelay: 0
+  ChatData: []

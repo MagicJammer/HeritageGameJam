@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b08f7ce2f258d44b42517e65a038a0, type: 3}
+  m_Name: chickenkebabrool
+  m_EditorClassIdentifier: 
+  OrderNumber: 6
+  CustomerSprite: {fileID: 0}
+  DishRecipe:
+    DishName: 207
+    Instructions:
+    - Ingredients: 
+      Workstation: 4
+      ProcessTime: 0
+      Type: 0
+      Result: 121
+    - Ingredients: 23000000
+      Workstation: 4
+      ProcessTime: 0
+      Type: 0
+      Result: 122
+    - Ingredients: 16000000
+      Workstation: 2
+      ProcessTime: 0
+      Type: 0
+      Result: 105
+    - Ingredients: 13000000
+      Workstation: 5
+      ProcessTime: 0
+      Type: 0
+      Result: 123
+    - Ingredients: 790000007a000000690000007b000000
+      Workstation: 1
+      ProcessTime: 0
+      Type: 0
+      Result: 207
+    - Ingredients: cf000000
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 207
+    IngredientsToPickup: 0c000000230000001600000013000000
+  StoryData:
+  - StoryLine: "My family came from a long line of traders but my father decided
+      it wasn\u2019t for him and settled in Singapore. He then decided to open a
+      Chicken Kebab Stall. "
+    TextDelay: 0
+  ChatData: []

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b08f7ce2f258d44b42517e65a038a0, type: 3}
+  m_Name: tapiocacake
+  m_EditorClassIdentifier: 
+  OrderNumber: 5
+  CustomerSprite: {fileID: 21300000, guid: 27487c3674aaddb498c1e62e2220321d, type: 3}
+  DishRecipe:
+    DishName: 206
+    Instructions:
+    - Ingredients: 21000000
+      Workstation: 2
+      ProcessTime: 0
+      Type: 0
+      Result: 119
+    - Ingredients: 18000000
+      Workstation: 5
+      ProcessTime: 0
+      Type: 0
+      Result: 113
+    - Ingredients: 77000000
+      Workstation: 3
+      ProcessTime: 0
+      Type: 0
+      Result: 120
+    - Ingredients: 1200000078000000
+      Workstation: 1
+      ProcessTime: 0
+      Type: 0
+      Result: 206
+    - Ingredients: ce000000
+      Workstation: 0
+      ProcessTime: 0
+      Type: 0
+      Result: 206
+    IngredientsToPickup: 210000001700000012000000
+  StoryData:
+  - StoryLine: "My great grandma once told me a story about the time during the Japanese
+      occupation and how they had to survive on tapioca. So she made a dessert out
+      of it as well. It\u2019s a bite-sized dessert, consisting of steamed tapioca,
+      a starch made from cassava root, which is then coated with grated coconut.
+      \r\nIt was the small bit of joy she could get during those times. \r\n"
+    TextDelay: 0
+  ChatData: []
