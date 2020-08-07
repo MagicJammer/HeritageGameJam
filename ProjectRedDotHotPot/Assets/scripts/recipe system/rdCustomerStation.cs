@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class rdCustomerStation : rdStation
 {
-    [HideInInspector]
+
     public SpriteRenderer CustomerSprite;
     public AudioOneShotData BellSound;
     public override bool Interact(FoodItemTag item, rdEntity user) {
@@ -36,7 +36,7 @@ public class rdCustomerStation : rdStation
 
     private void Start() {
         rdRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
-        CustomerSprite = this.GetComponent<SpriteRenderer>();
+        //CustomerSprite = this.GetComponentInChildren<SpriteRenderer>();
         OnNewRecipe();
     }
 

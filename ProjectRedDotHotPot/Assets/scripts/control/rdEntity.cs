@@ -157,8 +157,8 @@ public class MoveState : rdEntity.SI_State<rdEntity>
         Vector2 r = user._RB2D.velocity;
         //user._Anim.SetBool("IsWalking", r.x != 0);
         user._Anim.SetBool("IsMidAir", r.y < -0.1f||r.y>0.1f);
-        if(r!=Vector2.zero)
-        Debug.Log(r);
+       // if(r!=Vector2.zero)
+        //Debug.Log(r);
     }
 }
 public class WorkState : rdEntity.SI_State<rdEntity>
