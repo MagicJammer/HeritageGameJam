@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrderNumber: 0
   CustomerSprite: {fileID: 21300000, guid: 8e048f7912c6d394f8e347763b27ae71, type: 3}
+  RecipeMakingTime: 0
   DishRecipe:
     DishName: 201
     Instructions:
-    - Ingredients: 03000000
+    - Ingredients: 02000000
       Workstation: 2
       ProcessTime: 1
       Type: 0

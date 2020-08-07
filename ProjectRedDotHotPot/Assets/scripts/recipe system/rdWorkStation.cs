@@ -115,9 +115,24 @@ public class rdWorkStation : rdStation {
         User.SendMessageToBrain((int)PlayerCommand.WorkDone);
         Debug.Log(CurrentInstruction.Result + " Done");
         LoopSound.Stop();
-        User = null;
         Status = StationStatus.Collect;
+        if(CurrentInstruction.Type==TaskType.Active)
+        {
+            User.CollectItem(CurrentInstruction.Result);
+            RecipeMenu.Remove(CurrentInstruction);
+            CurrentHoldItems.Clear();
+            //OnHoldInstructionUpdate();
+            rdUIManager.UpdateOnHandItem(User.ItemOnHand, User);
+            rdUIManager.UpdateStationPopups(this.gameObject);
+            rdRecipeManager.UpdateInstruction(User.ItemOnHand);
+            Status = StationStatus.Ready;
+        }
+        else
+        {
         rdUIManager.UpdateStationPopups(this.gameObject, CurrentInstruction.Result);
+
+        }
+        User = null;
     }
 
     void Update() {

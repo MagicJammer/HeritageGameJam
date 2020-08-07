@@ -167,6 +167,9 @@ public class WorkState : rdEntity.SI_State<rdEntity>
     public WorkState(rdEntity brain) : base(brain) { }
     public override void OnReceiveMessage(int msgtype, object[] args)
     {
+        PlayerCommand c = (PlayerCommand)msgtype;
+        if (c == PlayerCommand.WorkDone)
+            user.ChangeState(PlayerState.Move);
     }
 
     public override void OnStateEnter(PlayerState prevStateType, object[] args)
@@ -174,12 +177,14 @@ public class WorkState : rdEntity.SI_State<rdEntity>
         user = (rdEntity)Machine;
         Rigidbody2D r = user._RB2D;
         r.velocity = Vector2.zero;
+        user._Anim.SetBool("IsWorking", true);
         //change the sprite renderer here
         //user._SP = ...
     }
 
     public override void OnStateExit(PlayerState newStateType, object[] arg)
     {
+        user._Anim.SetBool("IsWorking", false);
         //back to moving sprite i guess
         //user._SP = ...
     }
