@@ -17,6 +17,7 @@ public delegate void DeusAwake(object sender);
             RegisterEnemy,
             RegisterSolipsismObject,
             RegisterCameraSection,
+            OnNewRecipeStartChat,
         }
     //}
     public static partial class OrderCor

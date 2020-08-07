@@ -44,6 +44,7 @@ public class rdCustomerStation : rdStation
 
     void OnNewRecipe() {
         CustomerSprite.sprite = rdRecipeManager.Seele._currentCustomer.CustomerSprite;
+
     }
 
     // Update is called once per frame

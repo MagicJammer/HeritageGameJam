@@ -97,6 +97,10 @@ public class rdUIManager : Singleton<rdUIManager>
         Seele._currentIdx = 0;
         Seele._stories = stories;
         Seele._currentChatGO = Instantiate(Seele.ChatPrefab);
+        
+
+
+
         Seele._currentText = Seele._currentChatGO.GetComponentInChildren<Text>();
         Seele._currentText.text = "";
         Seele.ReadNext();
@@ -109,11 +113,12 @@ public class rdUIManager : Singleton<rdUIManager>
         {
             CancelInvoke();
             print("finised story");
-            Invoke("StoryDone", delay);
+             //Invoke("StoryDone", delay);
             Destroy(_currentChatGO, delay);
             return;
         }
         delay = _stories[_currentIdx].TextDelay;
+
         _currentText.text = _stories[_currentIdx].StoryLine;
         _currentIdx++;
         Invoke("ReadNext", delay);

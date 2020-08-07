@@ -44,8 +44,6 @@ public struct AudioOneShotData
     int _CurrentClip;
     public void PlayAtPoint(Vector3 position)
     {
-        if(_CurrentClip<Clips.Length)
-        if (Clips[_CurrentClip] != null)
         {
         AudioSource.PlayClipAtPoint(Clips[_CurrentClip], position, Volume);
         _CurrentClip++;
