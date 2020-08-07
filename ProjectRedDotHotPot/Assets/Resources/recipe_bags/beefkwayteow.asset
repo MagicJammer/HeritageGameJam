@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: beefkwayteow
   m_EditorClassIdentifier: 
   OrderNumber: 0
-  CustomerSprite: {fileID: 0}
+  CustomerSprite: {fileID: 21300000, guid: 8e048f7912c6d394f8e347763b27ae71, type: 3}
   DishRecipe:
     DishName: 201
     Instructions:
