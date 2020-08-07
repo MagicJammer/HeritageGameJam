@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 263201402}
   - component: {fileID: 263201401}
   - component: {fileID: 263201400}
+  - component: {fileID: 263201403}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -793,6 +794,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263201403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263201399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459902fabb09a6249bf9d898586fa46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Perpetual: 0
+  MainCanvasPrefab: {fileID: 2724259403421165015, guid: b2613d586361f1248b122835021c720b,
+    type: 3}
+  PopupPrefab: {fileID: 1713743184676485724, guid: a8260eb8d7f351d40a28c7a09f3c76e3,
+    type: 3}
+  PopupOffsetY: 1.75
+  ChatPrefab: {fileID: 1713743184676485724, guid: af3202cc05945d646a9c746996500c39,
+    type: 3}
+  FoodPath: ui_foodbags
 --- !u!1 &292469259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011223534310, guid: 30319199574ca3644bf3898bb5cac486, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4000011223534310, guid: 30319199574ca3644bf3898bb5cac486, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1225,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011416873294, guid: f0666abddd74e5644ac4cf977d74e5e9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000011416873294, guid: f0666abddd74e5644ac4cf977d74e5e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4818,7 +4840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013634387022, guid: 323e5d46aea633c42bfadb66b36971d8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4000013634387022, guid: 323e5d46aea633c42bfadb66b36971d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7354,7 +7376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b2eac06df3bf649b779cf5b6b73ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CustomerSprite: {fileID: 0}
+  CustomerSprite: {fileID: 1016292060}
   BellSound:
     Clips:
     - {fileID: 8300000, guid: f6c3a6184ef00374e8288701a1fa0b07, type: 3}
@@ -7794,7 +7816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012227641834, guid: 97c7589824dbbb24cbc2b95a9345ebb1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4000012227641834, guid: 97c7589824dbbb24cbc2b95a9345ebb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7859,7 +7881,7 @@ Transform:
   - {fileID: 683153267}
   - {fileID: 1416022490}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2010759450
 GameObject:
