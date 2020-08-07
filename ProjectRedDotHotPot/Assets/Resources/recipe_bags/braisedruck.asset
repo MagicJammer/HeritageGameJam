@@ -19,27 +19,27 @@ MonoBehaviour:
     Instructions:
     - Ingredients: 08000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 111
-    - Ingredients: 1e000000
+    - Ingredients: 1f000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 112
     - Ingredients: 0a0000001b00000070000000
       Workstation: 3
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 1
       Result: 115
     - Ingredients: 1d000000730000006f000000
       Workstation: 1
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 204
     - Ingredients: cc000000
       Workstation: 1
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 204
     IngredientsToPickup: 080000001e0000000a0000001b0000001d000000

@@ -19,17 +19,17 @@ MonoBehaviour:
     Instructions:
     - Ingredients: 1a000000
       Workstation: 3
-      ProcessTime: 0
-      Type: 0
+      ProcessTime: 1
+      Type: 1
       Result: 110
     - Ingredients: 0b000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 124
     - Ingredients: 10000000
       Workstation: 5
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 125
     - Ingredients: 15000000110000006e0000007c0000007d000000

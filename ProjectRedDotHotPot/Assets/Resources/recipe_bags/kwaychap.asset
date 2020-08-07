@@ -19,25 +19,25 @@ MonoBehaviour:
     Instructions:
     - Ingredients: 0a000000
       Workstation: 3
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 1
       Result: 108
-    - Ingredients: 18000000
+    - Ingredients: 19000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 101
-    - Ingredients: 1f00000065000000
+    - Ingredients: 2000000065000000
       Workstation: 4
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 109
-    - Ingredients: 6d00000021000000140000001d000000
+    - Ingredients: 6d00000022000000150000001e000000
       Workstation: 1
       ProcessTime: 0
       Type: 0
       Result: 203
-    IngredientsToPickup: 0a000000180000001f00000021000000140000001d000000
+    IngredientsToPickup: 0a000000190000002000000022000000150000001e000000
   StoryData:
   - StoryLine: 'My grandpa used to have a pig farm. '
     TextDelay: 0

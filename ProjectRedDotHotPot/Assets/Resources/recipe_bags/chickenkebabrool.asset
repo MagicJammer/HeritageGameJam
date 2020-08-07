@@ -17,24 +17,24 @@ MonoBehaviour:
   DishRecipe:
     DishName: 207
     Instructions:
-    - Ingredients: 
+    - Ingredients: 0c000000
       Workstation: 4
       ProcessTime: 0
       Type: 0
       Result: 121
     - Ingredients: 23000000
       Workstation: 4
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 122
     - Ingredients: 16000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 105
     - Ingredients: 13000000
       Workstation: 5
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 123
     - Ingredients: 790000007a000000690000007b000000

@@ -19,22 +19,22 @@ MonoBehaviour:
     Instructions:
     - Ingredients: 21000000
       Workstation: 2
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 119
     - Ingredients: 18000000
       Workstation: 5
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 113
     - Ingredients: 77000000
       Workstation: 3
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 120
-    - Ingredients: 1200000078000000
+    - Ingredients: 120000007800000071000000
       Workstation: 1
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 206
     IngredientsToPickup: 210000001700000012000000

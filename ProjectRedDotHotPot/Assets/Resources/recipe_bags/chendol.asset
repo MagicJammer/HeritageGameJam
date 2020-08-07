@@ -17,32 +17,27 @@ MonoBehaviour:
   DishRecipe:
     DishName: 205
     Instructions:
-    - Ingredients: 1a000000
+    - Ingredients: 1b000000
       Workstation: 3
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 1
       Result: 116
-    - Ingredients: 16000000
+    - Ingredients: 17000000
       Workstation: 5
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 0
       Result: 117
     - Ingredients: 75000000
       Workstation: 3
-      ProcessTime: 0
+      ProcessTime: 1
       Type: 1
       Result: 118
-    - Ingredients: 0f0000001c0000001c00000011000000
+    - Ingredients: 0f000000760000001d00000011000000
       Workstation: 1
       ProcessTime: 0
       Type: 0
       Result: 205
-    - Ingredients: cd000000
-      Workstation: 1
-      ProcessTime: 0
-      Type: 0
-      Result: 205
-    IngredientsToPickup: 1a000000160000000f0000001c00000011000000
+    IngredientsToPickup: 1b0000001d0000000f0000001700000011000000
   StoryData:
   - StoryLine: 'As a kid I used to play with my friends by the river, pushing each
       other in. Dad would then bring me to have dessert at the market. He would talk
