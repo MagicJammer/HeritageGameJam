@@ -45,6 +45,9 @@ public class rdEntity : FiniteStateMachine<PlayerState>
         RegisterState(new WorkState(this));
         ChangeState(PlayerState.Move);
         _Audio = GetComponent<AudioSource>();
+
+        //don't do this kind of coding again geoff XD
+        rdUIManager.Seele.PlayerEntity = this.gameObject.transform;
     }
     public void FootstepSound()
     {

@@ -17,6 +17,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     public ChatData[] _currentChatdatas => _customerOrders[_currentOrderIdx].ChatData;
     public CustomerRecipe _currentCustomer => _customerOrders[_currentOrderIdx];
 
+    public bool JustStarted = true;
+
     //waaa
     public int _allOrders => _customerOrders.Count;
 
@@ -53,7 +55,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
         if (_currentOrderIdx >= _customerOrders.Count - 1) {
             print("finished game");
             //show scores
-             rdScoreSystem.Seele.ShowScore();
+            rdScoreSystem.Seele.ShowScore();
             return;
         }
         NewRecipe();
@@ -64,7 +66,7 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
         if (_currentOrderIdx >= _customerOrders.Count - 1) {
             print("finished game");
             //show scores
-           // rdScoreSystem.Seele.ShowScore();
+            // rdScoreSystem.Seele.ShowScore();
             return;
         }
         _currentOrderIdx++;
@@ -74,6 +76,13 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
 
     //event to call all to replenish/change menu
     public void NewRecipe() {
+        if (JustStarted) {
+            _currentOrderIdx = 0;
+            JustStarted = false;
+        } else {
+            _currentOrderIdx++;
+
+        }
         OnNewRecipe?.Invoke();
         StoryData[] story = _customerOrders[_currentOrderIdx].StoryData;
         rdUIManager.ShowStoryText(story);
@@ -84,13 +93,11 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     }
 }
 [Serializable]
-public struct AudioAmbienceDynamic
-{
+public struct AudioAmbienceDynamic {
     public AudioClip Clip;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float[] FaderMarks;
-    public float GetVolume(int key)
-    {
+    public float GetVolume(int key) {
         return FaderMarks[key];
     }
 }

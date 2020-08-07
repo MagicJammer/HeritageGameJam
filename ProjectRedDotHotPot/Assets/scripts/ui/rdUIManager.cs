@@ -19,6 +19,10 @@ public class rdUIManager : Singleton<rdUIManager>
     int _currentIdx=0;
     StoryData[] _stories;
     //ChatData[] _chats;
+    [Header("Offset for the player")]
+    public Vector3 Offset;
+    public Transform PlayerEntity;
+    public Transform Customer;
 
     [Header("FoodPath")]
     public string FoodPath = "ui_foodbags";
@@ -96,11 +100,7 @@ public class rdUIManager : Singleton<rdUIManager>
 
         Seele._currentIdx = 0;
         Seele._stories = stories;
-        Seele._currentChatGO = Instantiate(Seele.ChatPrefab);
-        
-
-
-
+        Seele._currentChatGO = Instantiate(Seele.ChatPrefab);        
         Seele._currentText = Seele._currentChatGO.GetComponentInChildren<Text>();
         Seele._currentText.text = "";
         Seele.ReadNext();
@@ -118,6 +118,14 @@ public class rdUIManager : Singleton<rdUIManager>
             return;
         }
         delay = _stories[_currentIdx].TextDelay;
+
+        if (_stories[_currentIdx].Speaker == Speaker.Customer) {
+            _currentChatGO.transform.SetParent(null, false);
+            _currentChatGO.transform.position = Customer.position + Offset;
+        } else {
+            _currentChatGO.transform.position = PlayerEntity.position + Offset;
+            _currentChatGO.transform.SetParent(PlayerEntity);
+        }
 
         _currentText.text = _stories[_currentIdx].StoryLine;
         _currentIdx++;

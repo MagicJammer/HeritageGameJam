@@ -40,11 +40,15 @@ public class rdCustomerStation : rdStation
         rdRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
         //CustomerSprite = this.GetComponentInChildren<SpriteRenderer>();
         OnNewRecipe();
+
+        //dont do this coding ever again geoff hahaha
+        rdUIManager.Seele.Customer = CustomerSprite.gameObject.transform;
     }
 
     void OnNewRecipe() {
         CustomerSprite.sprite = rdRecipeManager.Seele._currentCustomer.CustomerSprite;
 
+        
     }
 
     // Update is called once per frame
