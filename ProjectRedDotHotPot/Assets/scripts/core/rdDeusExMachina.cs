@@ -132,9 +132,14 @@ public enum StationStatus
 public struct StoryData {
     [TextArea(3, 5)]
     public string StoryLine;
+    public Speaker Speaker;
     public float TextDelay;
 }
 
+public enum Speaker {
+    Customer,
+    Player,
+}
 [System.Serializable]
 public struct ChatData {
     public string ChatLine;

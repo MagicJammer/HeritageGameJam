@@ -23,6 +23,9 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     public event Action OnNewRecipe;
     public event Action<FoodItemTag> OnHoldInstructionUpdate;
 
+    public bool JustStarted = true;
+
+
     protected override void Awake() {
         base.Awake();
         CustomerRecipe[] rcps = Resources.LoadAll<CustomerRecipe>(RecipePath);
@@ -37,6 +40,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     private void Start() {
         rdUIManager.Seele.OnStoryTellingDone += OnStoryTellingDone;
         _CrowdSound = GetComponent<AudioSource>();
+
+        NewRecipe();
     }
 
     protected override void OnDestroy() {
@@ -47,15 +52,23 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     }
 
     public void OrderServed() {
-        StoryData[] story = _customerOrders[_currentOrderIdx].StoryData;
-        rdUIManager.ShowStoryText(story);
+        // start new recipe
+        if (_currentOrderIdx >= _customerOrders.Count - 1) {
+            print("finished game");
+            //show scores
+           rdScoreSystem.Seele.ShowScore();
+            return;
+        }
+        //NewRecipe();
+
+
     }
 
     void OnStoryTellingDone() {
         if (_currentOrderIdx >= _customerOrders.Count - 1) {
             print("finished game");
             //show scores
-            rdScoreSystem.Seele.ShowScore();
+           // rdScoreSystem.Seele.ShowScore();
             return;
         }
         _currentOrderIdx++;
@@ -65,7 +78,16 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
 
     //event to call all to replenish/change menu
     public void NewRecipe() {
+        if (JustStarted) {
+            _currentOrderIdx = 0;
+            JustStarted = false;
+        } else {
+            _currentOrderIdx++;
+
+        }
         OnNewRecipe?.Invoke();
+        StoryData[] story = _customerOrders[_currentOrderIdx].StoryData;
+        rdUIManager.ShowStoryText(story);
     }
 
     public static void UpdateInstruction(FoodItemTag foodInstruction) {
