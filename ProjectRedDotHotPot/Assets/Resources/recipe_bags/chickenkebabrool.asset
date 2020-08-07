@@ -42,11 +42,6 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 0
       Result: 207
-    - Ingredients: cf000000
-      Workstation: 0
-      ProcessTime: 0
-      Type: 0
-      Result: 207
     IngredientsToPickup: 0c000000230000001600000013000000
   StoryData:
   - StoryLine: "My family came from a long line of traders but my father decided

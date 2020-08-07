@@ -116,7 +116,7 @@ public enum FoodItemTag
 }
 public enum WorkstationTag
 {
-    Counter, PlateOrBowl, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None, Collect,
+    Deleted, PlateOrBowl, ChoppingBoard, Pot, FryingPan, MortarPestle, RiceCooker, None, Collect,
 }
 public enum StationStatus
 {

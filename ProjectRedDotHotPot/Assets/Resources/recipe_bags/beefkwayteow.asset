@@ -43,7 +43,7 @@ MonoBehaviour:
       Type: 1
       Result: 201
     - Ingredients: c9000000
-      Workstation: 0
+      Workstation: 1
       ProcessTime: 0
       Type: 1
       Result: 201

@@ -38,7 +38,7 @@ MonoBehaviour:
       Type: 0
       Result: 204
     - Ingredients: cc000000
-      Workstation: 0
+      Workstation: 1
       ProcessTime: 0
       Type: 0
       Result: 204
