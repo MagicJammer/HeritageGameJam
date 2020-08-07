@@ -37,11 +37,6 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 0
       Result: 203
-    - Ingredients: cb000000
-      Workstation: 0
-      ProcessTime: 0
-      Type: 0
-      Result: 203
     IngredientsToPickup: 0a000000180000001f00000021000000140000001d000000
   StoryData:
   - StoryLine: 'My grandpa used to have a pig farm. '

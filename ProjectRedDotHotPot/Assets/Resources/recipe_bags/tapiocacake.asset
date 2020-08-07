@@ -37,11 +37,6 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 0
       Result: 206
-    - Ingredients: ce000000
-      Workstation: 0
-      ProcessTime: 0
-      Type: 0
-      Result: 206
     IngredientsToPickup: 210000001700000012000000
   StoryData:
   - StoryLine: "My great grandma once told me a story about the time during the Japanese

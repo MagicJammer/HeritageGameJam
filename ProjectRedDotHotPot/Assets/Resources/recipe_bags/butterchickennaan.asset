@@ -32,11 +32,6 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 0
       Result: 202
-    - Ingredients: ca000000
-      Workstation: 0
-      ProcessTime: 0
-      Type: 0
-      Result: 202
     IngredientsToPickup: 13000000070000000900000003000000
   StoryData:
   - StoryLine: "My family shifted to Singapore in hopes of living peacefully, my

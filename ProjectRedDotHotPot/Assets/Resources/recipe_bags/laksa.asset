@@ -37,11 +37,6 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 0
       Result: 208
-    - Ingredients: d0000000
-      Workstation: 0
-      ProcessTime: 0
-      Type: 0
-      Result: 208
     IngredientsToPickup: 1a0000000b000000100000001500000013000000
   StoryData:
   - StoryLine: 'My great grandfather used to be a fisherman here. As riverside residents,
