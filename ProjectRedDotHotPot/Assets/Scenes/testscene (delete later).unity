@@ -5764,7 +5764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 030000000d0000000c0000000e00000022000000
+  RestrictIngredients: 020000000d00000015000000060000000e000000
   IngredientsToPickedUp: 
 --- !u!4 &1078357962
 Transform:

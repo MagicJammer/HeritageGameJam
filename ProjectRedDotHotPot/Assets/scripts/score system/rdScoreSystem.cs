@@ -15,8 +15,8 @@ public class rdScoreSystem : Singleton<rdScoreSystem>
     public float StartTime = 20;
     float _percentage = 0.20f;
  
-     Text Stars_Text;
-     Text Timer_Text;
+    Text Stars_Text;
+    Text Timer_Text;
 
     [SerializeField] float _timeChecker;
     [SerializeField] float _previousTime;
