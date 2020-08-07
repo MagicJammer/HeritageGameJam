@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 24000000
+  RestrictIngredients: 1c000000
   IngredientsToPickedUp: 
 --- !u!1 &139645433
 GameObject:
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 16000000
+  RestrictIngredients: 1b000000
   IngredientsToPickedUp: 
 --- !u!1 &499471099
 GameObject:
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 00000000
+  RestrictIngredients: 210000001f000000
   IngredientsToPickedUp: 
 --- !u!1 &519420028
 GameObject:
@@ -7497,7 +7497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tag: 8
   Status: 0
-  RestrictIngredients: 
+  RestrictIngredients: 0000000000000000000000000000000000000000000000000000000000000000
   IngredientsToPickedUp: 
 --- !u!1 &1541969920
 GameObject:
