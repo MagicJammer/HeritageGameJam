@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: oil
   m_EditorClassIdentifier: 
   FoodType: 34
-  Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  Sprite: {fileID: 6952856608175333534, guid: 4c3edd2041d44ad44b5061d15f6fa805, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: tapioca
   m_EditorClassIdentifier: 
   FoodType: 33
-  Sprite: {fileID: 21300000, guid: 7a189a4f7ebf1eb49bd97cdc986aff27, type: 3}
+  Sprite: {fileID: 21300000, guid: 49bd723ad5cd68f44af75220d67e0696, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}
