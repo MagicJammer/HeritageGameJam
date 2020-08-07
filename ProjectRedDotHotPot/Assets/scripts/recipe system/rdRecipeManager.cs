@@ -15,8 +15,10 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     List<CustomerRecipe> _customerOrders = new List<CustomerRecipe>();
     int _currentOrderIdx = 0;
     public ChatData[] _currentChatdatas => _customerOrders[_currentOrderIdx].ChatData;
-
     public CustomerRecipe _currentCustomer => _customerOrders[_currentOrderIdx];
+
+    //waaa
+    public int _allOrders => _customerOrders.Count;
 
     public event Action OnNewRecipe;
     public event Action<FoodItemTag> OnHoldInstructionUpdate;
@@ -52,6 +54,8 @@ public class rdRecipeManager : Singleton<rdRecipeManager> {
     void OnStoryTellingDone() {
         if (_currentOrderIdx >= _customerOrders.Count - 1) {
             print("finished game");
+            //show scores
+            rdScoreSystem.Seele.ShowScore();
             return;
         }
         _currentOrderIdx++;

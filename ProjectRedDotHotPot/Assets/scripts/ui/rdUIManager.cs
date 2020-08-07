@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class rdUIManager : Singleton<rdUIManager>
 {
+    [Header("Main Canvas")]
+    public GameObject MainCanvasPrefab;
+    public Canvas MainCanvas { private set; get; }
     [Header("Popup Canvas")]
     public GameObject PopupPrefab;
     public float PopupOffsetY = 1.75f;
@@ -30,6 +33,10 @@ public class rdUIManager : Singleton<rdUIManager>
         rdUIFoodBags[] fd= Resources.LoadAll<rdUIFoodBags>(FoodPath);
         foreach (var f in fd) {
             _foodBags[f.FoodType] = f;
+        }
+
+        if (MainCanvas == null) {
+            MainCanvas = Instantiate(MainCanvasPrefab).GetComponent<Canvas>();
         }
     }
 

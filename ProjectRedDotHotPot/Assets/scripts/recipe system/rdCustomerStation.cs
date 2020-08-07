@@ -15,6 +15,8 @@ public class rdCustomerStation : rdStation
             user.ItemOnHand = FoodItemTag.None;
             rdUIManager.UpdateOnHandItem(user.ItemOnHand, user);
 
+            rdScoreSystem.Seele.OrderServed();
+
         } else {
             //random chat thingyy
             ChatData[] chats = rdRecipeManager.Seele._currentChatdatas;

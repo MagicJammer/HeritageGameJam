@@ -7,36 +7,90 @@ using UnityEngine.UI;
 
 public class rdScoreSystem : Singleton<rdScoreSystem>
 {
-
-
     [Header("Score Settings")]
-    public float StartTime = 20;
- 
+    public GameObject TimerText;
+    public GameObject ScoreText;
+    public GameObject FinishPanel;
     public bool timePaused = false;
-    public float starDecreasePerSecond = 3;
+    public float StartTime = 20;
+    float _percentage = 0.20f;
+ 
+     Text Stars_Text;
+     Text Timer_Text;
 
-    public Text Stars_Text;
-    public Text Timer_Text;
+    [SerializeField] float _timeChecker;
+    [SerializeField] float _previousTime;
+    [SerializeField] float _timer;
+    int _stars = 5;
 
-    float _previousTime;
-    float _timer;
-    float _stars = 25;
-    bool _completed;
+    [Header("Average Scores")]
+    public int CurrentRecipeNumbersAverage;
+    public int CurrentStarScores;
+    [SerializeField] bool _justStarted = true;
 
-    void Start()
-    {
-        _timer = StartTime;
-        _previousTime = _timer;
+    protected override void OnDestroy() {
+        base.OnDestroy();
+        if (rdRecipeManager.Seele != null) {
+            rdRecipeManager.Seele.OnNewRecipe -= OnNewRecipe;
+        }
+    }
+
+    private void Start() {
+        rdRecipeManager.Seele.OnNewRecipe += OnNewRecipe;
+
+        GameObject tt = Instantiate(TimerText);
+        GameObject st =  Instantiate(ScoreText);
+        tt.transform.SetParent(rdUIManager.Seele.MainCanvas.transform, false);
+        st.transform.SetParent(rdUIManager.Seele.MainCanvas.transform, false);
+
+        Stars_Text = st.GetComponent<Text>();
+        Timer_Text = tt.GetComponent<Text>();
+
+        OnNewRecipe();
+        CurrentRecipeNumbersAverage = rdRecipeManager.Seele._allOrders;
+    }
+
+    void OnNewRecipe() {
+        float updateTime = rdRecipeManager.Seele._currentCustomer.RecipeMakingTime;
+        timePaused = false;
+         _timer = updateTime;
+        _timeChecker = _timer * _percentage;
+        _stars = 5;
+
+        if (!_justStarted) {
+            CurrentStarScores += _stars;
+        }
+        _justStarted = false;
+    }
+
+    public void OrderServed() {
+        timePaused = true;
+    }
+
+    //ending one
+    public void ShowScore() {
+        CurrentStarScores += _stars;
+        print("final stars" + CurrentStarScores);
+        //public gameobject showing stars and have button thingy
+        GameObject fp = Instantiate(FinishPanel);
+        fp.transform.SetParent(rdUIManager.Seele.MainCanvas.transform, false);
+    }
+
+    void PausedTime() {
+        Timer_Text.text = "";
+        Stars_Text.text = _stars.ToString() + " stars";
     }
 
     void Update()
     {
-        Timer_Text.text = "" + (int)_timer;
-        Stars_Text.text = _stars.ToString();
+        if (timePaused) {
+            PausedTime();
+            return;
+        }
 
-        _stars -= starDecreasePerSecond * Time.deltaTime;
-        _stars = Mathf.RoundToInt(_stars);
-        Stars_Text.text = _stars.ToString();
+        Timer_Text.text = "" + (int)_timer;
+        Stars_Text.text = _stars.ToString() + " stars";
+
 
         if (!timePaused)
         {
@@ -45,28 +99,29 @@ public class rdScoreSystem : Singleton<rdScoreSystem>
 
         if(_stars < 0)
         {
-            _stars = Mathf.Clamp(_stars, 0.0f, 10f);
+            _stars = Mathf.Clamp(_stars, 0, 10);
+            
         }
     }
 
 
     public void StartTimer()
-    {
-       
+    {      
         _timer -= Time.deltaTime;
-        int seconds = Mathf.RoundToInt(_timer / 5);
-        
+        _previousTime += Time.deltaTime;
 
-        if (_previousTime - (int)_timer == starDecreasePerSecond)
+        if (_previousTime > _timeChecker)
         {
-            DeleteStar(3);
-            _previousTime = (int)_timer;
+            DeleteStar(1);
+            _previousTime = 0;
         }
 
         if (_timer <= 0)
         {
              _timer = Mathf.Clamp(_timer, 0.0f, 10f);
+            DeleteStar(1);
             Debug.Log("Customer no food, Customer sad");
+            timePaused = true;
         }
     }
 
@@ -78,12 +133,12 @@ public class rdScoreSystem : Singleton<rdScoreSystem>
     public void AddStar(int newStar)
     {
         _stars += newStar;
-        Stars_Text.text = _stars.ToString();
+        Stars_Text.text = _stars.ToString() + " stars";
     }
 
     public void DeleteStar(int removeStar)
     {
         _stars -= removeStar;
-        Stars_Text.text = _stars.ToString();
+        Stars_Text.text = _stars.ToString() + " stars";
     }
 }
