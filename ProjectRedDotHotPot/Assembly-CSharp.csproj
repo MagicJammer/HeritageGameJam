@@ -76,7 +76,7 @@
     <Compile Include="Assets\scripts\recipe system\rdPlateOrBowl.cs" />
     <Compile Include="Assets\scripts\recipe system\rdRecipeManager.cs" />
     <Compile Include="Assets\scripts\recipe system\rdWorkStation.cs" />
-    <Compile Include="Assets\scripts\ui\rdDontDestroy.cs" />
+    <Compile Include="Assets\scripts\ui\rdMusicplayer.cs" />
     <Compile Include="Assets\scripts\ui\rdSceneChanger.cs" />
     <Compile Include="Assets\scripts\ui\rdUIFoodBags.cs" />
     <Compile Include="Assets\scripts\ui\rdUIManager.cs" />

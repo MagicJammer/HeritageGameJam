@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
   m_Name: mint
   m_EditorClassIdentifier: 
-  FoodType: 18
+  FoodType: 19
   Sprite: {fileID: 21300000, guid: 7265184d8408016458a2753760b13ba2, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}

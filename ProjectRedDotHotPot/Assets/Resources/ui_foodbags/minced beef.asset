@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeae73f1550f9c4bb4ac8ac87987acc, type: 3}
   m_Name: minced beef
   m_EditorClassIdentifier: 
-  FoodType: 101
-  Sprite: {fileID: 21300000, guid: a48d4c451b662c4459d6192d08ee61e8, type: 3}
+  FoodType: 102
+  Sprite: {fileID: 21300000, guid: 94e7e464c3261004fa03669eda3a3b74, type: 3}
   Prefab: {fileID: 1066671835574952497, guid: a7cc60ec24a428745971358074239f2d, type: 3}
