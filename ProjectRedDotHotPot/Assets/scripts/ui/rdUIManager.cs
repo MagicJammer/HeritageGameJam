@@ -24,6 +24,14 @@ public class rdUIManager : Singleton<rdUIManager>
     public string FoodPath = "ui_foodbags";
     Dictionary<FoodItemTag, rdUIFoodBags> _foodBags = new Dictionary<FoodItemTag, rdUIFoodBags>();
 
+    [Header("Offset for the player")]
+    public Vector3 Offset;
+    [HideInInspector]
+    public Transform PlayerEntity;
+    [HideInInspector]
+
+    public Transform Customer;
+
     public event Action<string> OnDestroyPopup;
     public event Action OnStoryTellingDone;
  
@@ -109,11 +117,18 @@ public class rdUIManager : Singleton<rdUIManager>
         {
             CancelInvoke();
             print("finised story");
-            Invoke("StoryDone", delay);
+           // Invoke("StoryDone", delay);
             Destroy(_currentChatGO, delay);
             return;
         }
         delay = _stories[_currentIdx].TextDelay;
+        if (_stories[_currentIdx].Speaker == Speaker.Customer) {
+            _currentChatGO.transform.SetParent(null, false);
+            _currentChatGO.transform.position = Customer.position + Offset;
+        } else {
+            _currentChatGO.transform.position = PlayerEntity.position + Offset;
+            _currentChatGO.transform.SetParent(PlayerEntity);
+        }
         _currentText.text = _stories[_currentIdx].StoryLine;
         _currentIdx++;
         Invoke("ReadNext", delay);

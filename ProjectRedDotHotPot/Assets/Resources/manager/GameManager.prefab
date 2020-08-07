@@ -155,7 +155,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2512206776853892989}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da4557b5aeb963408ea34d5790dc02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Perpetual: 0
+  Perpetual: 1
   RecipePath: recipe_bags
   CrowdSoundClip:
     Clip: {fileID: 8300000, guid: debd7f34d0441c64ca00a8225dbcc457, type: 3}
@@ -188,6 +188,7 @@ MonoBehaviour:
     - 0.8
     - 0.9
     - 1
+  JustStarted: 1
 --- !u!82 &2512206776853892978
 AudioSource:
   m_ObjectHideFlags: 0
@@ -306,6 +307,9 @@ MonoBehaviour:
   ChatPrefab: {fileID: 1713743184676485724, guid: af3202cc05945d646a9c746996500c39,
     type: 3}
   FoodPath: ui_foodbags
+  Offset: {x: 0, y: 2, z: 0}
+  PlayerEntity: {fileID: 0}
+  Customer: {fileID: 0}
 --- !u!114 &2512206776853892982
 MonoBehaviour:
   m_ObjectHideFlags: 0
