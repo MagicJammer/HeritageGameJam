@@ -21,23 +21,23 @@ MonoBehaviour:
       Workstation: 2
       ProcessTime: 1
       Type: 0
-      Result: 101
+      Result: 102
     - Ingredients: 0d000000
       Workstation: 2
       ProcessTime: 1
       Type: 0
-      Result: 102
-    - Ingredients: 0c000000
-      Workstation: 2
-      ProcessTime: 1
-      Type: 0
       Result: 103
-    - Ingredients: 0e000000
+    - Ingredients: 06000000
       Workstation: 2
       ProcessTime: 1
       Type: 0
       Result: 104
-    - Ingredients: 2200000065000000660000006800000067000000
+    - Ingredients: 0e000000
+      Workstation: 2
+      ProcessTime: 1
+      Type: 0
+      Result: 114
+    - Ingredients: 1500000072000000660000006800000067000000
       Workstation: 3
       ProcessTime: 1
       Type: 1
@@ -47,7 +47,7 @@ MonoBehaviour:
       ProcessTime: 0
       Type: 1
       Result: 201
-    IngredientsToPickup: 030000000d0000000c0000000e00000022000000
+    IngredientsToPickup: 020000000d000000060000000e00000015000000
   StoryData:
   - StoryLine: I used to live here.
     TextDelay: 2
