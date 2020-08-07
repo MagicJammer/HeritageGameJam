@@ -811,7 +811,7 @@ MonoBehaviour:
     type: 3}
   PopupPrefab: {fileID: 1713743184676485724, guid: a8260eb8d7f351d40a28c7a09f3c76e3,
     type: 3}
-  PopupOffsetY: 1.75
+  PopupOffsetY: 0.21
   ChatPrefab: {fileID: 1713743184676485724, guid: af3202cc05945d646a9c746996500c39,
     type: 3}
   FoodPath: ui_foodbags
@@ -9050,8 +9050,8 @@ Tilemap:
   - first: {x: 9, y: -6, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 11
+      m_TileIndex: 1
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9780,12 +9780,12 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 142
     m_Data: {fileID: 11400000, guid: a2efcffffb123334498671a33ab3c713, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: c0fed3da474df044984dfe47d12eab65, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 0d523d0af4292e943a07c56b87276dac, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f9d3726c531903243bed9dcbf5e6ff59, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: 208861ab3efcd4446970c55173126ad7, type: 2}
   - m_RefCount: 1
@@ -9816,7 +9816,7 @@ Tilemap:
       type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data: {fileID: -7190719572971877601, guid: 81f3b19b84f087e42859d6c3bf012e74,
       type: 3}
   - m_RefCount: 2
@@ -9831,9 +9831,8 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: -915352507628530066, guid: 2159925852d21454aaa256aba1dfebad,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 8652677587666043219, guid: 81f3b19b84f087e42859d6c3bf012e74,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1707878253529702307, guid: 2159925852d21454aaa256aba1dfebad,
       type: 3}

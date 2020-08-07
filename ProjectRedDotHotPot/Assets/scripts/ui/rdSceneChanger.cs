@@ -11,6 +11,14 @@ public class rdSceneChanger : MonoBehaviour
     public void GoStartScene()
     {
         SceneManager.LoadScene("New Scene");
-
+    }
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+            GoGameScene();
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
